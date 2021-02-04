@@ -22,9 +22,14 @@
 // //not effective, but it just shows that functions can be layered
 // console.log(four);
 
+//normal function
+function honkHorn(){
+    return "beep beep";
+}
+
 //Anonymous Function: when passed into parent function (also called callback function)
 var honkHorn = function(){
-    return "beep beep";
+    return "anonymous beep beep";
 }
 //the parameter is already named through the variable, so the function keyword
 //can be left empty, making it an anonymous function
