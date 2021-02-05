@@ -1,5 +1,7 @@
 "use strict";
 
+//SCOPES
+
 var globalVar = "Look, I'm global!"
     //declare global variable
 
@@ -29,5 +31,20 @@ var variable = "I'm out in the open, I hope nothing bad happens..."
     console.log(iifeVar);
 //should return error, since the variable is locked in an iife,
 //the JavaScript console cannot see it
+
+//IF / ELSE STATEMENTS
+
+// function myName(name) {
+//     myName = prompt("What is your name?");
+//     name = myName;
+//     return name
+// }
+// if(name === "Kenyon") {
+//     console.log("What a coincidence, that's my dog's name!");
+// } else if(myName === "Joe") {
+//     myName("Who?");
+// } else {
+//     alert("Nice to meet you " + name + "!")
+// }
 
 
