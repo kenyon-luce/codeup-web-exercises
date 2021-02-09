@@ -178,6 +178,7 @@ console.log(calculateTotal());
 function whatNumber(number) {
     var response = confirm("Would you like to enter a number?");
     if (response === true) {
+        //don't need to set response equal to true, it should default to true on its own
         var number = parseInt(prompt("What number?"));
         if (!isNaN(number)) {
             if (number % 2 === 0) {
@@ -199,5 +200,5 @@ function whatNumber(number) {
     }
 }
 whatNumber();
-//apparently you have if-else statements WITHIN other if-else statements
+//apparently you can have if-else statements WITHIN other if-else statements
 
