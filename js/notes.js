@@ -47,4 +47,15 @@ var variable = "I'm out in the open, I hope nothing bad happens..."
 //     alert("Nice to meet you " + name + "!")
 // }
 
+//NESTING STATEMENTS
+var userWantsToContinue = confirm("Would you like to continue?");
 
+if(userWantsToContinue) {
+    var usersDay = prompt("How is your day going?");
+    if (usersDay === "good") {
+        console.log("Good, I am glad you are having a good day!");
+    } else {
+        console.log("Sorry to hear, I hope your day goes better!");
+    }
+}
+//is a variable with function characteristics, runs condition based on the first one
