@@ -91,6 +91,8 @@ while(!areWeThereYet) { //"!" says keep executing the code as long as you keep g
     areWeThereYet = confirm("Are we there yet?"); // alert expects ok ("true") or cancel ("false") from user
 }
 //This code is a while loop that will keep asking "are we there yet" until we say yes
+alert("Finally, we are here!");
+//this code executes after the above loop is completed
 
 //Break and Continue
 //break
@@ -108,9 +110,10 @@ var numberToStopAt = 5;
 for (var i = 1; i < 10; i++) { //for loop
     console.log("loop counter is: " + i);
     if (i === numberToStopAt) {
-        console.log("we are at stopping point: continue!");
+        console.log("This is the number 5: continue!");
         continue; //loop may continue after exiting
         //code below won't execute
+        //also, you can skip numbers by not putting any code
     }
 }
 //the above code counts numbers from 1 - 9, for break, it stops at 5,
