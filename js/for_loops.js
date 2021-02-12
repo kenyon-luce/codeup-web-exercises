@@ -34,20 +34,22 @@ function randomOddOrEven(num) {
 // 88888888
 // 999999999
 
-// var rows=5;
-// for(var i=1;i<=rows;i++) {
-//     for (var j = 1; j <= i; j++) {
-//         document.write(i + " ");
-//     }
-//     document.write("<br/>");
-// }
-
 function pyramid() {
-    for(var i = 1; i < 10; i++) {
+    var num = "";
+    for (var i = 1; i < 10; i++) {
         for (var j = 1; j <= i; j++) {
-            console.log(i + " ");
+            num = num + i
         }
+        console.log(num);
+        var num = ""
     }
 }
-pyramid()
+pyramid();
+//1st loop says to increment number from one to 9, the 2nd loop tells the first loop to repeat its code as many times as i is incremented. The number is incremented, added to the num string, and repeated depending on each number. The numbers are logged, and the last code at the end is supposed to reassign the num variable to make sure each group of numbers end up being split into their respective rows instead of everything being jumbled in one string (im still somewhat confused but the idea is still settling in)
+
+
+
+
+
+
 
