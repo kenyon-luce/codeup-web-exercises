@@ -1,4 +1,6 @@
 "use strict";
+//to activate each function, just uncomment the function call at the end of them
+
 //Create a function named showMultiplicationTable that accepts a number and console.logs the multiplication table for that number (just multiply by the numbers 1 through 10)
 function showMultiplicationTable(num) {
     var i = 1;
@@ -33,7 +35,6 @@ function randomOddOrEven(num) {
 // 7777777
 // 88888888
 // 999999999
-
 function pyramid() {
     var num = "";
     for (var i = 1; i < 10; i++) {
@@ -44,12 +45,35 @@ function pyramid() {
         var num = ""
     }
 }
-pyramid();
-//1st loop says to increment number from one to 9, the 2nd loop tells the first loop to repeat its code as many times as i is incremented. The number is incremented, added to the num string, and repeated depending on each number. The numbers are logged, and the last code at the end is supposed to reassign the num variable to make sure each group of numbers end up being split into their respective rows instead of everything being jumbled in one string (im still somewhat confused but the idea is still settling in)
+// pyramid();
+//1st loop says to increment number from 1 to 9, the 2nd loop takes the i and repeats its own code the number of times i becomes. Every time i is incremented, j repeats its code once more. In this case it takes i and adds it into the empty num string, the last code re-declares the num variable to split each group of numbers into their distinctive "layer" instead of having them all jumbled together in one string each time the code executes
 
-
-
-
-
-
-
+//Create a for loop that uses console.log to create the output shown below.
+//100
+// 95
+// 90
+// 85
+// 80
+// 75
+// 70
+// 65
+// 60
+// 55
+// 50
+// 45
+// 40
+// 35
+// 30
+// 25
+// 20
+// 15
+// 10
+// 5
+function subtractFive() {
+    for (var i = 100; i >= 5; i--) {
+        if (i % 5 === 0) {
+            console.log(i)
+        }
+    }
+}
+// subtractFive();
