@@ -44,7 +44,7 @@ console.log("Yay! I sold them all!"); //only executes when loop is finished
 //this code uses whats called a "happy path", since we are looking for what we want (in the if) and then what we don't want (in the else)
 
 //this code took a really long time for me despite how simple it was. now I know to simplify things and expand on them rather than tackling everything simultaneously. my mistakes started with the following
-//1. tried to copy a previous exercise using i-- and logging every number that was divisible by the random number (when logging it subtracted one more than I told it to)
+//1. tried to copy a previous exercise using i-- and logging i every time it was divisible by the random number (when logging it subtracted one more than I told it to, also why did I spend so much time trying to make this work lol)
 //2. made separate conditions and used breaks for each one, ignoring that the while statement already worked as my break and was the only break needed in this case (stopped my loop from repeating and made things more complicated)
 //3. had the decrement above the if statements so it ran even though I didn't have enough to sell (giving me negative numbers)
 //4. wasn't really a mistake, but I originally set my conesToSell variable to i so I didn't have to keep re typing conesToSell, makes things easier to type but is more readable for myself and others if we know what the code is doing
