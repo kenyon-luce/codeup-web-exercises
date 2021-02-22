@@ -71,12 +71,14 @@ function pyramid() {
 // 10
 // 5
 function subtractFive() {
-    for (var i = 100; i >= 5; i--) {
-        if (i % 5 === 0) {
-            console.log(i)
+    // for (var i = 100; i >= 5; i--) {
+    //     if (i % 5 === 0) {
+    //         console.log(i);
+    //     }
+    //}
+        //this works, but the more straight forward solution would be
+        for (var i = 100; i >= 5; i -= 5) { //decrements by 5 instead of 1 each time
+            console.log(i);
         }
-    }
 }
 // subtractFive();
-
-
