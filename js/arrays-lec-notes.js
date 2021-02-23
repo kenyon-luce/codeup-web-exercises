@@ -101,14 +101,23 @@ console.log(instructors[3]); //justin
 console.log(instructors[4]); //fernando
 
 // TODO: console.log the first three elements of the daysOfTheWeek array
-
-
+console.log(daysOfTheWeek[0]);
+console.log(daysOfTheWeek[1]);
+console.log(daysOfTheWeek[2]);
+//to show all three days in one line, will only work with concatenation
 
 // TODO: console.log the first three elements of the favoriteFoods array
-
-
+console.log(favoriteFoods[0]);
+console.log(favoriteFoods[1]);
+console.log(favoriteFoods[2]);
 
 // TODO: create a function called `returnLastElement` that accepts an array and returns the last element of that array
+function returnLastElement(array) {
+    array.reverse();
+    return array[0];
+    //the more efficient method would be:
+    // return array[array.length - 1];
+}
 
 // we know we have to get the length of the array - 1
 // array.length - 1 <== represents the last item in an array
@@ -131,51 +140,112 @@ console.log(instructors[4]); //fernando
 *************************************************************** */
 //  TODO TOGETHER: Log each element of the shapes array
 // TODO TOGETHER: Using a for loop, iterate through the shapes array and log each shape
-
-
-
+for(var i = 0; i < shapes.length; i++) {
+    console.log(shapes[i]);
+}
 
 // TODO TOGETHER: Alert "that's my favorite shape!" when your favorite shape is iterated over in the loop.
-
-
+// for(var i = 0; i < shapes.length; i++) {
+//     if(shapes[i] === 'circle') {
+//         alert(shapes[i] + " is my favorite shape too!");
+//     }
+// }
 
 // TODO: What happens if we change var i = 1? or var i = 2;
-// TODO: What are benefits of using loops to iterate?
-// TODO: How does the loop know when to stop iterating?
+//for the second loop, if we set var i = 3, it will skip circle because the loop starts at the 4th object ('triangle'), which is after circle in the array, so it will not see 'circle' and the alert will not pop up
 
+// TODO: What are benefits of using loops to iterate?
+//goes through each object in the array
+
+// TODO: How does the loop know when to stop iterating?
+//stops when i increments to the number of objects in the array
 
 // TODO: Using a for loop, iterate through the instructors array and console.log each instructor
-
+for(i = 0; i < instructors.length; i++) {
+    console.log(instructors[i]);
+}
 
 // TODO: Using a for loop, iterate through the daysOfTheWeek array and console.log each day of the week
-
+for(i = 0; i < daysOfTheWeek.length; i++) {
+    console.log(daysOfTheWeek[i]);
+}
 
 // TODO: Using a for loop, iterate through the favoriteFoods array and console.log each favorite food
-
-
+for(i = 0; i < favoriteFoods.length; i++) {
+    console.log(favoriteFoods[i]);
+}
 
 // TODO: Refactoring the instructor loop, alert "hey, I know <INSTRUCTOR NAME HERE>" if you have had class with that instructor. If you have not had class with that instructor, alert "I haven't had class with <INSTRUCTOR NAME HERE> yet!"
-
-
+// for(var instructorIndex = 0; instructorIndex < instructors.length; instructorIndex++) { //i = instructorIndex
+//     var currentInstructor = instructors[instructorIndex];
+//     if(currentInstructor === "kenneth" || currentInstructor === "douglas" || currentInstructor === "samuel") {
+//         alert("hey, I know " + currentInstructor);
+//     } else {
+//         alert("I haven't had class with " + currentInstructor + " yet!");
+//     }
+// }
 
 /* ***************************************************************
 * 						FOR EACH ARRAY
 *************************************************************** */
 
 // TODO TOGETHER: Using a for each loop, console.log each shape from the shapes array
+var printShape = function(shape) {
+    console.log(shape);
+}
+shapes.forEach(printShape);
+// shapes.forEach(function(shape) {
+//     console.log(shape);
+// })
+//^^simpler way of typing it
 
+//below demonstrates what forEach technically does in the background
+// function myForEach(array, callback) { //with forEach, we put in the array and the function (callback) we want to pass that array into
+//     for(var i = 0; i < array.length; i++) {
+//         var currentItem = array[i];
+//         callback(currentItem, i, array);
+//     }
+// }
+// myForEach(shapes, printShape);
 
 
 // TODO TOGETHER: Using a for each loop, console.log each element from the following array: var pies = ["apple", "cherry", "key lime", "huckleberry"];
-
-
+var printPie = function(pies) {
+    console.log(pies);
+}
+pies.forEach(printPie);
+//or
+// pies.forEach(function(pies) {
+//     console.log(pies);
+// })
 
 // TODO: Using a for each loop, iterate through the instructors array and console.log each instructor
-
-
+var printInstructors = function(instructors) {
+    console.log(instructors);
+}
+instructors.forEach(printInstructors);
+//or
+// instructors.forEach(function(instructors) {
+//     console.log(instructors);
+// })
 
 // TODO: Using a for each loop, iterate through the daysOfTheWeek array and console.log each day of the week
-
-
+var printDaysOfTheWeek = function(daysOfTheWeek) {
+    console.log(daysOfTheWeek);
+}
+daysOfTheWeek.forEach(printDaysOfTheWeek);
+//or
+// daysOfTheWeek.forEach(function(daysOfTheWeek) {
+//     console.log(daysOfTheWeek);
+// })
 
 // TODO: Using a for each loop, iterate through the favoriteFoods array and console.log each favorite food
+var printFavFoods = function(favoriteFoods) {
+    console.log(favoriteFoods);
+}
+favoriteFoods.forEach(printFavFoods);
+//or
+// favoriteFoods.forEach(function(favoriteFoods) {
+//     console.log(favoriteFoods);
+// })
+//no need to make the function a variable to pass it in as a parameter, this is just showing that both work. I'd say making the function a variable makes the code easier to read.
