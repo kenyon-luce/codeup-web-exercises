@@ -86,12 +86,12 @@
 // }
 
 //Here is another example just for fun
-var areWeThereYet;
-while(!areWeThereYet) { //"!" says keep executing the code as long as you keep getting "false"
-    areWeThereYet = confirm("Are we there yet?"); // alert expects ok ("true") or cancel ("false") from user
-}
-//This code is a while loop that will keep asking "are we there yet" until we say yes
-alert("Finally, we are here!");
+// var areWeThereYet;
+// while(!areWeThereYet) { //"!" says keep executing the code as long as you keep getting "false"
+//     areWeThereYet = confirm("Are we there yet?"); // alert expects ok ("true") or cancel ("false") from user
+// }
+// //This code is a while loop that will keep asking "are we there yet" until we say yes
+// alert("Finally, we are here!");
 //this code executes after the above loop is completed
 
 //Break and Continue
@@ -106,15 +106,25 @@ alert("Finally, we are here!");
 //     }
 // }
 //continue - instead of break type continue
-var numberToStopAt = 5;
-for (var i = 1; i < 10; i++) { //for loop
-    console.log("loop counter is: " + i);
-    if (i === numberToStopAt) {
-        console.log("This is the number 5: continue!");
-        continue; //loop may continue after exiting
-        //code below won't execute
-        //also, you can skip numbers by not putting any code
-    }
-}
+// var numberToStopAt = 5;
+// for (var i = 1; i < 10; i++) { //for loop
+//     console.log("loop counter is: " + i);
+//     if (i === numberToStopAt) {
+//         console.log("This is the number 5: continue!");
+//         continue; //loop may continue after exiting
+//         //code below won't execute
+//         //also, you can skip numbers by not putting any code
+//     }
+// }
 //the above code counts numbers from 1 - 9, for break, it stops at 5,
 //while for continue, it executes the code, then continues to count the rest of the numbers past 5
+//ARRAYS
+//declare variable with an empty array
+var pies = [];
+console.log(pies);
+//assign pies to to apple, cherry, and key lime
+pies = ["apple", "cherry", "key lime"];
+console.log(pies);
+//assign new array with different shapes
+var shapes = ['square', 'circle', 'triangle'];
+console.log(shapes);
