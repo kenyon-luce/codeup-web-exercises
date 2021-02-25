@@ -120,11 +120,11 @@
 //while for continue, it executes the code, then continues to count the rest of the numbers past 5
 //ARRAYS
 //declare variable with an empty array
-var pies = [];
-console.log(pies);
-//assign pies to to apple, cherry, and key lime
-pies = ["apple", "cherry", "key lime"];
-console.log(pies);
-//assign new array with different shapes
-var shapes = ['square', 'circle', 'triangle'];
-console.log(shapes);
+// var pies = [];
+// console.log(pies);
+// //assign pies to to apple, cherry, and key lime
+// pies = ["apple", "cherry", "key lime"];
+// console.log(pies);
+// //assign new array with different shapes
+// var shapes = ['square', 'circle', 'triangle'];
+// console.log(shapes);
