@@ -74,7 +74,16 @@ var person = {
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-var books = ['Scott Pilgrim', 'Chainsaw Man', 'Seconds', 'Kaiju #8']
+var books = [
+        {title:'Scott Pilgrim', author: {firstName:"Bryan", lastName:"O'Mally"}},
+        {title:'Chainsaw Man', author: {firstName:"Tatsuki", lastName: "Fujimoto"}},
+        {title:'One Punch Man', author: {firstName:"Yusuke", lastName:"Murata"}},
+        createBook("My side of the mountain", "some", "person")
+        //added our function that we made below to this array!
+        ]
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -99,6 +108,15 @@ var books = ['Scott Pilgrim', 'Chainsaw Man', 'Seconds', 'Kaiju #8']
      *      ---
      *      ...
      */
+        books.forEach(function (book, index) {
+            console.log("Book # " + (index + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            console.log("---")
+        })
+    books.forEach(function(book, index){
+        showBookInfo(book, index);
+    })
 
     /**
      * Bonus:
@@ -110,5 +128,30 @@ var books = ['Scott Pilgrim', 'Chainsaw Man', 'Seconds', 'Kaiju #8']
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+// function createBook(input){
+//     var title = prompt("What is the title of your book?")
+//         var firstName = prompt("What is the author's first name?")
+//         var lastName = prompt("What is the author's last name?")
+//         var book = {title: title, author: {firstName: firstName, lastName: lastName}}
+//     return book;
+//     }
+    //used three parameters instead and removed prompt because it wasn't asking for that
+function createBook(bookTitle, authorFirstName, authorLastName){
+    var newBook = {
+        title: bookTitle,
+        author: {
+            firstName: authorFirstName,
+            lastName: authorLastName
+        }
+    }
+    return newBook;
+}
+console.log(createBook("My side of the mountain", "some", "person"));
 
+function showBookInfo(bookObject, bookNumber) {
+    console.log("Book # " + (bookNumber + 1));
+    console.log("Title: " + bookObject.title);
+    console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+    console.log("---")
+}
 })();
