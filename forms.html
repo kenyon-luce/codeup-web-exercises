@@ -6,6 +6,7 @@
     </head>
     <body>
         <form method="POST" action="https://request-inspector.glitch.me/">
+<!--            when using the POST method, you are adding (or posting) information, so it will log whatever you type in inside of "body":{} when you submit, while with GET, you are asking for (or getting) information, so it will log the info within "query":{} when you submit your input-->
             <label>
                 Email
                 <input type="email" name="email" placeholder="example@email.com">
@@ -17,11 +18,24 @@
             <textarea name="bio" placeholder="Inroduce yourself!"></textarea><br>
             <h3>How did you hear about us?</h3>
             <label>
-                <input type="radio" name="option1"> billboard
-                <input type="radio" name="option2"> radio advertisement
-                <input type="radio" name="option3"> internet advertisement
-                <input type="radio" name="option4"> other
+<!--                <input type="radio" name="option1"> billboard-->
+<!--                <br>-->
+<!--                <input type="radio" name="option1"> radio advertisement-->
+<!--                <br>-->
+<!--                <input type="radio" name="option1"> internet advertisement-->
+<!--                <br>-->
+<!--                <input type="radio" name="option1"> other-->
+<!--                if you leave out name for any of the tags, things may not work as intended, and it will not log the input once you submit, now lets refactor this code so that we can select more than one option, using checkboxes-->
+                <input type="checkbox" value="billboard"> billboard
+                <br>
+                <input type="checkbox" value="radio ad"> radio advertisement
+                <br>
+                <input type="checkbox" value="internet ad"> internet advertisement
+                <br>
+                <input type="checkbox" value="other"> other
+<!--                unlike radio, we can deselect the options as well-->
             </label><br>
+
             <label>
                 <h3>What web browser are you using?</h3>
                 <select name="UserWebBrowser">
@@ -31,7 +45,7 @@
                     <option value="opera">Opera</option>
                 </select>
             </label>
-            <input type="submit"><br>
+            <input type="submit" value="Register Now"><br>
         </form>
     </body>
 </html>
