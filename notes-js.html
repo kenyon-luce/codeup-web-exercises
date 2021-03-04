@@ -3,52 +3,72 @@
     <head>
         <meta charset="UTF-8">
         <title>Notes</title>
+        <link rel="stylesheet" href="css/welcome.css">
     </head>
     <body>
         <script src = "js/notes.js"></script>
 <!--    hello-->
 <!--    making a form: zipcode example-->
-        <form action="https://request-inspector.glitch.me">
-            <label>
-                Email
-                <input type="email" name="email">
-            </label>
-            <br>
-            <label>
-                Password
-                <input type="password" name="userPassword">
-            </label>
-            <br>
-            <label for="zipCode">
-                ZipCode
-                <input id="zipCode" name="zipCode" type="number" placeholder="00000">
-            </label>
-            <br>
-            <br>
-            <label>
-                <textarea name="textArea" maxlength="100" placeholder="type your bio in here"></textarea>
-<!--            ^maxlength will only allow you to type up to 100 characters in this case-->
-            </label>
-            <br>
-            <input type="checkbox" name="locatedInTexas">Do you live in Texas?
-<!--            ^used for YES OR NO questions, passes true or false values: if checkbox is checked, it will return true and pass the name "located in texas"-->
-            <br>
-            <br>
-            A <input type="radio" name="quiz_question1" value="a"> I like multiple choice questions<br>
-            B <input type="radio" name="quiz_question1" value="b"> I don't mind doing multiple choice questions<br>
-            C <input type="radio" name="quiz_question1" value="c"> Multiple choice questions are boring<br>
-            D <input type="radio" name="quiz_question1" value="d"> I hate multiple choice questions<br>
-<!--            ^for MULTIPLE CHOICE questions, will only let you select one answer that shares the same name, if all of them had different names, you would be able to select all of them-->
-            <h3>What coffee do you like?</h3>
-            <select name="coffee_preference">
-                <option value="light">Light Roast</option>
-                <option value="dark">Dark Roast</option>
-                <option value="espresso">Espresso Blend</option>
-                <option value="mocha">Mocha</option>
-                <option disabled value="choccy_milk">No, gimme choccy milk!</option>
-<!--                disabled the last option lol. User can see it as an option but can't click on it-->
-            </select>
-            <input type="submit">
-        </form>
+<!--        <form action="https://request-inspector.glitch.me">-->
+<!--            <label>-->
+<!--                Email-->
+<!--                <input type="email" name="email">-->
+<!--            </label>-->
+<!--            <br>-->
+<!--            <label>-->
+<!--                Password-->
+<!--                <input type="password" name="userPassword">-->
+<!--            </label>-->
+<!--            <br>-->
+<!--            <label for="zipCode">-->
+<!--                ZipCode-->
+<!--                <input id="zipCode" name="zipCode" type="number" placeholder="00000">-->
+<!--            </label>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--            <label>-->
+<!--                <textarea name="textArea" maxlength="100" placeholder="type your bio in here"></textarea>-->
+<!--&lt;!&ndash;            ^maxlength will only allow you to type up to 100 characters in this case&ndash;&gt;-->
+<!--            </label>-->
+<!--            <br>-->
+<!--            <input type="checkbox" name="locatedInTexas">Do you live in Texas?-->
+<!--&lt;!&ndash;            ^used for YES OR NO questions, passes true or false values: if checkbox is checked, it will return true and pass the name "located in texas"&ndash;&gt;-->
+<!--            <br>-->
+<!--            <br>-->
+<!--            A <input type="radio" name="quiz_question1" value="a"> I like multiple choice questions<br>-->
+<!--            B <input type="radio" name="quiz_question1" value="b"> I don't mind doing multiple choice questions<br>-->
+<!--            C <input type="radio" name="quiz_question1" value="c"> Multiple choice questions are boring<br>-->
+<!--            D <input type="radio" name="quiz_question1" value="d"> I hate multiple choice questions<br>-->
+<!--&lt;!&ndash;            ^for MULTIPLE CHOICE questions, will only let you select one answer that shares the same name, if all of them had different names, you would be able to select all of them&ndash;&gt;-->
+<!--            <h3>What coffee do you like?</h3>-->
+<!--            <select name="coffee_preference">-->
+<!--                <option value="light">Light Roast</option>-->
+<!--                <option value="dark">Dark Roast</option>-->
+<!--                <option value="espresso">Espresso Blend</option>-->
+<!--                <option value="mocha">Mocha</option>-->
+<!--                <option disabled value="choccy_milk">No, gimme choccy milk!</option>-->
+<!--&lt;!&ndash;                disabled the last option lol. User can see it as an option but can't click on it&ndash;&gt;-->
+<!--            </select>-->
+<!--            <input type="submit">-->
+<!--        </form>-->
+
+<!--    CSS-->
+<!--        there are 3 ways to include CSS-->
+<!--        below is an example of INLINE CSS-->
+<!--    <style>-->
+<!--        h1 {-->
+<!--            background-color: navy;-->
+<!--            color: orangered;-->
+<!--        }-->
+<!--        h2{-->
+<!--            color: orange;-->
+<!--        }-->
+<!--    </style>-->
+<!--        <h1>Hello, welcome to my website!</h1>-->
+<!--        <h2>this is inline CSS</h2>-->
+
+<!--&lt;!&ndash;        Below is an example of ATTRIBUTE CSS&ndash;&gt;-->
+<!--    <h1 style="background-color: navy; color: orangered; text-decoration: underline">Hello, welcome to my website!</h1>-->
+<!--&lt;!&ndash;    ^^shows the color on the left side of it too!&ndash;&gt;-->
     </body>
 </html>
