@@ -9,8 +9,45 @@
 <!--    hello-->
 <!--    making a form: zipcode example-->
         <form action="https://request-inspector.glitch.me">
-            <label for="zipCode">ZipCode</label>
-            <input id="zipCode" name="zipCode" type="number" placeholder="00000">
+            <label>
+                Email
+                <input type="email" name="email">
+            </label>
+            <br>
+            <label>
+                Password
+                <input type="password" name="userPassword">
+            </label>
+            <br>
+            <label for="zipCode">
+                ZipCode
+                <input id="zipCode" name="zipCode" type="number" placeholder="00000">
+            </label>
+            <br>
+            <br>
+            <label>
+                <textarea name="textArea" maxlength="100" placeholder="type your bio in here"></textarea>
+<!--            ^maxlength will only allow you to type up to 100 characters in this case-->
+            </label>
+            <br>
+            <input type="checkbox" name="locatedInTexas">Do you live in Texas?
+<!--            ^used for YES OR NO questions, passes true or false values: if checkbox is checked, it will return true and pass the name "located in texas"-->
+            <br>
+            <br>
+            A <input type="radio" name="quiz_question1" value="a"> I like multiple choice questions<br>
+            B <input type="radio" name="quiz_question1" value="b"> I don't mind doing multiple choice questions<br>
+            C <input type="radio" name="quiz_question1" value="c"> Multiple choice questions are boring<br>
+            D <input type="radio" name="quiz_question1" value="d"> I hate multiple choice questions<br>
+<!--            ^for MULTIPLE CHOICE questions, will only let you select one answer that shares the same name, if all of them had different names, you would be able to select all of them-->
+            <h3>What coffee do you like?</h3>
+            <select name="coffee_preference">
+                <option value="light">Light Roast</option>
+                <option value="light">Dark Roast</option>
+                <option value="light">Espresso Blend</option>
+                <option value="light">Mocha</option>
+                <option disabled value="light">No, gimme choccy milk!</option>
+<!--                disabled the last option lol. User can see it as an option but can't click on it-->
+            </select>
             <input type="submit">
         </form>
     </body>
