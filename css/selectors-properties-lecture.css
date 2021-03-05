@@ -1,0 +1,44 @@
+/*selector {*/
+/*    property1: value;*/
+/*    property2: value;*/
+/*^format for BASIC selectors*/
+
+body {
+    background-color: lightblue;
+}
+/*^^makes everything in background (of the whole body) red*/
+
+#red {
+    color: red;
+}
+/*^this is an ID selector, to us it, add id="comic" as an attribute wherever you want to apply it*/
+
+.helvetica {
+    font-family: "Helvetica";
+}
+/*^this is a CLASS selector, to use it, add class="comic" as an attribute wherever you want to apply it*/
+/*class and id are essentially the same, just typed differently*/
+
+/*selector1, selector2 {*/
+/*    property1: value;*/
+/*    property2: value;*/
+/*}*/
+/*^^this is for using MULTIPLE selectors*/
+
+section {
+    background-color: purple;
+    outline: 5px solid red;
+}
+/*added this up top, the code below will overwrite this, the result should have white backgrounds for h3 and p with a purple box filling in between them*/
+
+h3, p {
+    font-family: "Comic Sans MS";
+    background-color: white;
+}
+/*^^this applies styles to MULTIPLE elements*/
+
+h1, h3, p {
+    text-align: center;
+}
+
+/*to link more than one selector, just add them in the same class attribute with space in between (only works for class selectors)*/
