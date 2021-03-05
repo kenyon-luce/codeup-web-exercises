@@ -27,7 +27,7 @@ body {
 
 section {
     background-color: purple;
-    outline: 5px solid red;
+    outline: 5px solid #FF0000;
 }
 /*added this up top, the code below will overwrite this, the result should have white backgrounds for h3 and p with a purple box filling in between them*/
 
@@ -40,5 +40,10 @@ h3, p {
 h1, h3, p {
     text-align: center;
 }
+
+section > p{
+    font-size: 20px;
+}
+/*^^DIRECT CHILD selector: if any <p> is a direct descendant of <section>, the style will apply*/
 
 /*to link more than one selector, just add them in the same class attribute with space in between (only works for class selectors)*/
