@@ -1,11 +1,25 @@
 /*this is is a CSS stylesheet*/
 
-.fancy-header {
-    color: purple;
+/*.fancy-header {*/
+/*    color: purple;*/
+/*}*/
+/*.fill-blue {*/
+/*    background-color: cornflowerblue;*/
+/*}*/
+/*.fill-red {*/
+/*    background-color: red*/
+/*}*/
+
+h1 {
+    text-align: center;
 }
-.fill-blue {
-    background-color: cornflowerblue;
+
+h1, h2 {
+    color: #32a9a7; /*special blue color in RGB Hexagonal code*/
+    text-decoration: underline;
 }
-.fill-red {
-    backround-color: red
+
+body {
+    background-color: #ffc13c; /*special orange color*/
+    background-image: url("../img/";
 }
