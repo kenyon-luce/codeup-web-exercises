@@ -21,5 +21,39 @@ h1, h2 {
 
 body {
     background-color: #ffc13c; /*special orange color*/
-    background-image: url("../img/";
+    background-image: url("../img/retro-sunset.jpg");
+    font-family:cursive;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+ul {
+    list-style-type: circle
+}
+
+table, tr, td {
+    border: 1px solid black
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.white {
+    color: white;
+}
+
+a:hover {
+    color: orange;
+}
+
+a:visited {
+    color: cornflowerblue;
+}
+
+a:active {
+    color: mediumpurple;
 }
