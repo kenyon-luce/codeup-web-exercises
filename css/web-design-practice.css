@@ -1,0 +1,35 @@
+html, body {
+    background: #ffe;
+    margin: 2em;
+}
+
+.title {
+    background: #1a6060;
+    margin: 1em;
+    text-align: center;
+    color: #ffe;
+}
+
+.navigation {
+    background: #1a6060;
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    list-style:none;
+}
+
+li {
+    margin: 0 3em
+}
+
+.sticky-nav {
+    position: fixed;
+    width: calc(100% - 10em);
+}
+
+p {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10em
+}
