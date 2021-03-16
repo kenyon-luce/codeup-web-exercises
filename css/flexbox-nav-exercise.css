@@ -1,0 +1,50 @@
+* {
+   box-sizing: border-box;
+}
+
+#navbar {
+    background: darkgrey;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    position:relative;
+    flex-basis: auto;
+}
+
+div {
+    width: 33%;
+}
+
+div.left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+div.center {
+    display: flex;
+    justify-content: center;
+}
+
+div.right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    font-size: .7em;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    flex-basis: content;
+    margin: 0 2px 0 2px;
+}
+
+a.logo {
+    font-size: 3em;
+    padding: .2em;
+}
+
+a:hover {
+    background: lightskyblue;
+}
