@@ -1,67 +1,59 @@
 * {
    box-sizing: border-box;
-/*    helps with flexbox*/
 }
 
-/*#navbar {*/
-/*    background: darkgrey;*/
-/*    width: 100%;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    margin: auto;*/
-/*    position:relative;*/
-/*    flex-basis: auto;*/
-/*}*/
+body {
+   margin: 0;
+}
 
-/*div {*/
-/*    width: 33%;*/
-/*}*/
-
-/*div.left {*/
-/*    display: flex;*/
-/*    justify-content: flex-start;*/
-/*}*/
-
-/*div.center {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
-
-/*div.right {*/
-/*    display: flex;*/
-/*    justify-content: flex-end;*/
-/*}*/
-
-/*a {*/
-/*    font-size: .7em;*/
-/*    text-decoration: none;*/
-/*    color: black;*/
-/*    text-align: center;*/
-/*    flex-basis: content;*/
-/*    margin: 0 2px 0 2px;*/
-/*}*/
-
-/*a.logo {*/
-/*    font-size: 3em;*/
-/*    padding: .2em;*/
-/*}*/
+nav {
+   background-color: lightgrey;
+   display: flex;
+   justify-content: space-between;
+   /*align-items: center;*/
+}
 
 header nav a {
    color: black;
    /*   only applies to anchor tags in nav tags that are in header tags*/
+   display: inline-block;
    text-decoration: none;
    /*   removes underline*/
+   font-family: 'Work Sans', sans-serif;
+   padding: 2em .5em;
+}
+
+header nav .nav-bar-logo {
+   position: absolute;
+   width: 100%;
+   text-align: center;
+/*   made the width of its box take up the entire page, because its position is absolute, it doesn't interfere with the other flex boxes. Now, all we did was center the text*/
+}
+
+header nav .nav-bar-logo a {
+   font-size: 3em;
+   padding: .27em 0;
+/*   what did this do?*/
+}
+
+header nav .nav-bar-logo li {
+   width: 100%;
 }
 
 header nav a:hover {
-    color: lightskyblue;
+    color: blue;
+    background-color: lightskyblue;
 }
 
-nav {
+header nav ul {
    display: flex;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   align-items: center;
 }
 
-nav ul {
-   display: flex;
-   list-style-type: none;
+ul:not(.nav-bar-logo) {
+   z-index: 100;
 }
+/*what?*/
