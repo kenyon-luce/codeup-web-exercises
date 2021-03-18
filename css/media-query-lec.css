@@ -98,3 +98,14 @@ i {
     padding: 1em;
     margin: 0 auto;
 }
+
+/* our first media query ABOVE 576px, we will TAILOR the layout to change, or RESPOND into the below layout*/
+
+@media screen and (min-width: 600px) {
+/*    selectors written here will overwrite based on the screens size*/
+    #orange {
+        border: 20px solid #333434
+    }
+/*    ^simple example, #orange adds a grey border when the screen is bigger than 576px, notice the change when making the window bigger and smaller*/
+/*    this is why its a good idea to start with a phone layout and make a media query that adapts to bigger screens, such as a laptop or ipad*/
+}
