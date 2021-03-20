@@ -4,7 +4,19 @@
         <meta charset="UTF-8">
         <title>Move Block</title>
     </head>
-    <body>
+    <body onload="startGame()">
+    <!--  runs startGame function as soon as page loads  -->
+    <!--  heads up, ONMOUSEDOWN is an inline HTML event representing when the user clicks over an element (in this case the buttons); ONMOUSEUP is for when the user stops clicking/ element not being clicked on; ONTOUCHSTART is the same as onmousedown except for devices with touchscreens. Each of these attributes call on a function created in JS-->
+    <div>
+<!--        <button onmousedown="rotateleft()"> ROTATE</button>-->
+        <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button>
+<!--        <button> ROTATE</button>-->
+        <br>
+        <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+        <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br>
+        <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+    </div>
 
+    <!--  https://www.w3schools.com/graphics/game_controllers.asp  -->
     </body>
 </html>
