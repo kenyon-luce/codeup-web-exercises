@@ -36,6 +36,7 @@ function component(width, height, color, x, y) {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
+    //    what does ctx do? //
     }
     this.newPos = function() {
         this.x += this.speedX;
@@ -71,6 +72,14 @@ function clearmove() {
 }
 
 // want to add rotate left/right functions//
+// https://stackoverflow.com/questions/17410809/how-to-calculate-rotation-in-2d-in-javascript//
+function rotateleft() {
+
+}
+
+function rotateright() {
+
+}
 
 //want to make frames that spawn spontaneously within the canvas, each with a random position/ rotation assigned to them//
 
