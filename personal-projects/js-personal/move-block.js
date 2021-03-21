@@ -1,3 +1,10 @@
+var myGamePiece;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
+
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -17,3 +24,54 @@ var myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+function moveup() {
+    myGamePiece.speedY = -1;
+}
+
+function movedown() {
+    myGamePiece.speedY = 1;
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1;
+}
+
+function moveright() {
+    myGamePiece.speedX = 1;
+}
+
+function clearmove() {
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+}
+
+// want to add rotate left/right functions//
+
+//want to make frames that spawn spontaneously within the canvas, each with a random position/ rotation assigned to them//
+
+//want to create a function that rewards points when you match the box with the frames//
