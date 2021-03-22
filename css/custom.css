@@ -1,0 +1,12 @@
+h1 {
+    background: rgba(88, 88, 88, 0.5);
+}
+
+.container #pizza {
+    background-image: url("../img/pizza.png");
+}
+
+.badge {
+    border-radius: 90px;
+}
+
