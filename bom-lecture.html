@@ -7,4 +7,31 @@
     <body>
 
     </body>
+    <script>
+        "use strict";
+
+        //setInterval
+        var count= 0;
+        var max= 10;
+        var interval= 1000; // 1000ms = 1sec
+
+        var intervalId= setInterval(function() {
+            if(count > max) {
+                console.log("All done");
+                clearInterval(intervalId) //equivalent to break
+            } else {
+                console.log("repeating this line, we are on interval #" + count)
+                count++;
+            }
+        }, interval)
+        //counts from 0 to 10 in the console every 1 second
+        // NOTE: don't need to use variables in input, can put the actual number in place of interval, same for max and count
+
+        // setTimeout
+        var delay= 5000 // 5 seconds
+
+        var timeoutId = setTimeout(function() {
+            alert("I'm here in five seconds")
+        }, delay)
+    </script>
 </html>
