@@ -25,17 +25,17 @@
 <body onload="startGame()">
 <!--  runs startGame function as soon as page loads  -->
 <!--  heads up, ONMOUSEDOWN is an inline HTML event representing when the user clicks over an element (in this case the buttons); ONMOUSEUP is for when the user stops clicking/ element not being clicked on; ONTOUCHSTART is the same as onmousedown except for devices with touchscreens (since we don't need that, I went ahead and deleted them). Each of these attributes call on a function created in JS, which we have called on within the body-->
-<!--<script type="text/javascript" src="js-personal/move-block.js"></script>-->
-<!--<div>-->
-<!--    &lt;!&ndash;        <button onmousedown="rotateleft()"> ROTATE</button>&ndash;&gt;-->
-<!--    <button onmousedown="moveup()" onmouseup="clearmove()">UP</button>-->
-<!--    &lt;!&ndash;        <button onmousedown="rotateright()"> ROTATE</button>&ndash;&gt;-->
-<!--    <br>-->
-<!--    <button onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>-->
-<!--    <button onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button>-->
-<!--    <br>-->
-<!--    <button onmousedown="movedown()" onmouseup="clearmove()" \>DOWN</button>-->
-<!--</div>-->
+<script type="text/javascript" src="js-personal/move-block.js"></script>
+<div>
+            <button onmousedown="rotateleft()"> ROTATE</button>
+    <button onmousedown="moveup()" onmouseup="clearmove()">UP</button>
+            <button onmousedown="rotateright()"> ROTATE</button>
+    <br>
+    <button onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>
+    <button onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button>
+    <br>
+    <button onmousedown="movedown()" onmouseup="clearmove()" \>DOWN</button>
+</div>
 
 <!--rotating object on interval-->
 <script>
