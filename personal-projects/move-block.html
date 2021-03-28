@@ -25,18 +25,70 @@
 <body onload="startGame()">
 <!--  runs startGame function as soon as page loads  -->
 <!--  heads up, ONMOUSEDOWN is an inline HTML event representing when the user clicks over an element (in this case the buttons); ONMOUSEUP is for when the user stops clicking/ element not being clicked on; ONTOUCHSTART is the same as onmousedown except for devices with touchscreens (since we don't need that, I went ahead and deleted them). Each of these attributes call on a function created in JS, which we have called on within the body-->
-<script type="text/javascript" src="js-personal/move-block.js"></script>
-<div>
-    <!--        <button onmousedown="rotateleft()"> ROTATE</button>-->
-    <button onmousedown="moveup()" onmouseup="clearmove()">UP</button>
-    <!--        <button onmousedown="rotateright()"> ROTATE</button>-->
-    <br>
-    <button onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>
-    <button onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button>
-    <br>
-    <button onmousedown="movedown()" onmouseup="clearmove()" \>DOWN</button>
-</div>
+<!--<script type="text/javascript" src="js-personal/move-block.js"></script>-->
+<!--<div>-->
+<!--    &lt;!&ndash;        <button onmousedown="rotateleft()"> ROTATE</button>&ndash;&gt;-->
+<!--    <button onmousedown="moveup()" onmouseup="clearmove()">UP</button>-->
+<!--    &lt;!&ndash;        <button onmousedown="rotateright()"> ROTATE</button>&ndash;&gt;-->
+<!--    <br>-->
+<!--    <button onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>-->
+<!--    <button onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button>-->
+<!--    <br>-->
+<!--    <button onmousedown="movedown()" onmouseup="clearmove()" \>DOWN</button>-->
+<!--</div>-->
 
+<!--rotating object on interval-->
+<script>
+
+    var myGamePiece;
+
+    function startGame() {
+        myGamePiece = new component(30, 30, "red", 80, 75);
+        myGameArea.start();
+    }
+
+    var myGameArea = {
+        canvas : document.createElement("canvas"),
+        start : function() {
+            this.canvas.width = 480;
+            this.canvas.height = 270;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            this.frameNo = 0;
+            this.interval = setInterval(updateGameArea, 20);
+        },
+        stop : function() {
+            clearInterval(this.interval);
+        },
+        clear : function() {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+    }
+
+    function component(width, height, color, x, y) {
+        this.width = width;
+        this.height = height;
+        this.angle = 0;
+        this.x = x;
+        this.y = y;
+        this.update = function() {
+            ctx = myGameArea.context;
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.angle);
+            ctx.fillStyle = color;
+            ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
+            ctx.restore();
+        }
+    }
+
+    function updateGameArea() {
+        myGameArea.clear();
+        myGamePiece.angle += 1 * Math.PI / 180;
+        myGamePiece.update();
+    }
+//goal is to refactor this to have the box rotate a certain direction when its respective button is pressed (add buttons)
+</script>
 <!--  https://www.w3schools.com/graphics/game_controllers.asp  -->
 </body>
 </html>
