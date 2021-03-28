@@ -1,7 +1,8 @@
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(30, 30, "red", 80, 75);
+    //dictating where red box first appears, also specifying its general size
     myGameArea.start();
 }
 
