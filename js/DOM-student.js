@@ -1,15 +1,24 @@
 //i. locating in the DOM
+"use-strict";
 
 // TODO: Find an element by the id of "hat-search". Store the result into a variable. Use a console log to check what is in your variable.
+var hatSearch = document.getElementById("hat-search");
+
+console.log(hatSearch);
 
 // TODO: Find all of our elements we made flex containers in Bootstrap! Locate the .d-flex class, store all of your results into a variable, and then console.log them.
+var flexBoxes = document.getElementsByClassName(".d-flex");
+console.log(flexBoxes);
 
 // TODO: Finish my FOR loop to go through that variable containing our d-flex'ed items and console.log each individual one within the loop!
 
-// for(var ; i < .length; ++){
-// .. need to console.log some stuff!}
+for (var i = 0; i < flexBoxes.length; i++) {
+    console.log(flexBoxes[i]);
+}
 
 // TODO: Find all of our div elements and store them into a variable~! Console.log the variable to see the results within!
+var divElements = document.getElementsByTagName("div")
+console.log(divElements)
 
 // TODO: Now that we have a variable with all of the elements, can you tell me how many divs are in the HTML using that variable and a little Javascript? Hint: the variable looks and behaves a lot like an array, doesn't it? That helped us in our for loop's condition!
 
