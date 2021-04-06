@@ -113,14 +113,20 @@
             $(e.target).css('background', 'red');
         });
 
-
-
-        /* extra practice problems
-            - double clicking on the square makes it disappear
-            - clicking on a paragraph will change the text to 'Howdy!'
-            - hovering over the sub header makes the letters turn to uppercase while hovering over
-        */
-
+        // extra practice problems
+            //- double clicking on the square makes it disappear
+            $('.box').dblclick(function(e){
+                $(e.target).css('display', 'none')
+                })
+           // - clicking on a paragraph will change the text to 'Howdy!'
+            $('p').click(function(e){
+                $(e.target).html('Howdy!')
+                })
+           // - hovering over the sub header makes the letters turn to uppercase while hovering over
+            var upperCase = $('h3').text().toUpperCase();
+            $('h3').hover(function(e){
+                $(e.target).html(upperCase);
+            });
     });
 
 </script>
