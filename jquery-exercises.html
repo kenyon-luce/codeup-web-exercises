@@ -12,40 +12,89 @@
 <!--</html>-->
 
 <!--below is what we did as a team-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ID selectors</title>-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">-->
+<!--</head>-->
+<!--<body id="body">-->
+<!--<h1 id="heading-1">-->
+<!--    Saving Private Ryan-->
+<!--</h1>-->
+<!--<div id="div"><p id="para-1">-->
+<!--    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto dicta distinctio dolore dolores dolorum ducimus est et ipsa, nobis nulla obcaecati odit omnis perspiciatis quas quod tempore voluptates voluptatibus.-->
+<!--</p>-->
+<!--    <ul id="character-list">-->
+<!--        <li id="main">Private Ryan</li>-->
+<!--        <li id="baller">Captain Miller</li>-->
+<!--        <li id="steady">Sniper Guy</li>-->
+<!--        <li id="loser">nice guy</li>-->
+<!--    </ul>-->
+
+<!--    <p id="para-2">-->
+<!--        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dolore officia quos sed sequi. Aliquam aut mollitia nemo officia reprehenderit tempore ullam velit vitae! Deserunt dolor dolorum eos odio odit?-->
+<!--    </p>-->
+<!--    <p id="para-3">-->
+<!--        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto blanditiis corporis cupiditate illum laudantium odio repellendus repudiandae, tempore voluptatibus? Ducimus modi nemo nisi nulla porro quas quis. Culpa, vero.-->
+<!--    </p>-->
+<!--</div>-->
+<!--<div id="empty"></div>-->
+
+
+<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"-->
+<!--        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<!--<script src="./js/jquery-selectors.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--below is the mouse event exercise-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ID selectors</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-</head>
-<body id="body">
-<h1 id="heading-1">
-    Saving Private Ryan
-</h1>
-<div id="div"><p id="para-1">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto dicta distinctio dolore dolores dolorum ducimus est et ipsa, nobis nulla obcaecati odit omnis perspiciatis quas quod tempore voluptates voluptatibus.
-</p>
-    <ul id="character-list">
-        <li id="main">Private Ryan</li>
-        <li id="baller">Captain Miller</li>
-        <li id="steady">Sniper Guy</li>
-        <li id="loser">nice guy</li>
-    </ul>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery Mouse Events</title>
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js"
+                integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        </script>
+        <script>
+            $(document).ready(function () {
+                'use strict';
 
-    <p id="para-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dolore officia quos sed sequi. Aliquam aut mollitia nemo officia reprehenderit tempore ullam velit vitae! Deserunt dolor dolorum eos odio odit?
-    </p>
-    <p id="para-3">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto blanditiis corporis cupiditate illum laudantium odio repellendus repudiandae, tempore voluptatibus? Ducimus modi nemo nisi nulla porro quas quis. Culpa, vero.
-    </p>
-</div>
-<div id="empty"></div>
+                $('.blue').click(function (e) {
+                    console.log('now I\'m blue');
+                    $(e.target).css('background', 'blue');
+                });
 
+                $('p').dblclick(function (e) {
+                    console.log('enlarged text');
+                    $(e.target).css('font-size', '18px');
+                });
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="./js/jquery-selectors.js"></script>
-</body>
+                $('li').hover(function(e){
+                    console.log('red');
+                    $(e.target).css('color', 'red')
+                }, function(e){
+                    console.log('black')
+                    $(e.target).css('color', 'black')
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1 class="blue">Click me!</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur dignissimos fugiat veniam. Aliquam, culpa cumque cupiditate doloremque inventore iste, iusto modi, nesciunt perferendis quas quidem rem repellendus vel voluptatibus?
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eligendi, ullam? Aliquam asperiores doloribus maxime placeat sunt velit? Ab alias facere fugiat laborum nisi optio quidem quos sint tempore vero!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eligendi, ullam? Aliquam asperiores doloribus maxime placeat sunt velit? Ab alias facere fugiat laborum nisi optio quidem quos sint tempore vero!</p>
+        <ul>
+            <li>black</li>
+            <li>black</li>
+            <li>black</li>
+            <li>black</li>
+        </ul>
+    </body>
 </html>
