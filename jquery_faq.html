@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Attributes and CSS</title>
+    </head>
+    <body>
+        <p>Definitions</p>
+        <dl>
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+
+            <dt>question?</dt>
+            <dd class="invisible">answer!</dd>
+        </dl>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>
+            $('dd').click(function(e){
+                // e.preventDefault();
+                // alert("Clicked?");
+                var ele = $(e.target);
+                ele.toggleClass("invisible");
+            })
+        </script>
+        <style>
+            .invisible {
+                visibility: hidden;
+            }
+        </style>
+    </body>
+</html>
