@@ -16,14 +16,15 @@
 
     var submit = 13
     var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, submit].join('')
-    // var code = [];
-    var code = '';
+    var code = [];
+    // var code = '';
 
     function contain(input) {
-        // code.push(input.keyCode);
-        code += input.keyCode;
+        code.push(input.keyCode);
+        // code += input.keyCode;
         console.log(code);
         if (input.keyCode === submit) {
+            code = code.join('');
             console.log("code submitted: " + code);
             console.log("konami code is: " + konami);
             if (code === konami) {
@@ -31,8 +32,8 @@
             }
             console.log(code === konami);
             console.log("resetting")
-            // code = [];
-            code = '';
+            code = [];
+            // code = '';
             console.log(code);
         }
     }
