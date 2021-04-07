@@ -14,17 +14,23 @@
     //     console.log(e.keyCode);
     // });
 
-    var enter = 13
-    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13]
+    var submit = 13
+    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, submit]
     var code = [];
 
     function contain(input) {
         code.push(input.keyCode);
         console.log(code);
-        if (code === konami) {
-            alert("HIYA!!");
-        } else if (input.keyCode === enter){
+        if (input.keyCode === submit) {
+            console.log("code submitted: " + code);
+            console.log("konami code is: " + konami);
+            if (code === konami) {
+                alert("You have added 30 lives!");
+            }
+            console.log(code === konami);
+            console.log("resetting")
             code = [];
+            console.log(code);
         }
     }
 
