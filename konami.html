@@ -15,11 +15,13 @@
     // });
 
     var submit = 13
-    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, submit]
-    var code = [];
+    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, submit].join('')
+    // var code = [];
+    var code = '';
 
     function contain(input) {
-        code.push(input.keyCode);
+        // code.push(input.keyCode);
+        code += input.keyCode;
         console.log(code);
         if (input.keyCode === submit) {
             console.log("code submitted: " + code);
@@ -29,7 +31,8 @@
             }
             console.log(code === konami);
             console.log("resetting")
-            code = [];
+            // code = [];
+            code = '';
             console.log(code);
         }
     }
