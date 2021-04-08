@@ -2,6 +2,14 @@ $(document).ready(function(){
     "use strict";
     console.log("Intro to AJAX!");
 
+    var car = {
+        make: "Toyota",
+        model: "Pacifica",
+        year: 2018,
+        funToDrive: true
+    }
+
+    console.log("should be a string", JSON.stringify(car))
 
     //JSON?
 
@@ -14,14 +22,24 @@ $(document).ready(function(){
      * TO DO TOGETHER: Let's make our first AJAX request. Generate a new Hookbin
      * endpoint, then query it for a username...
      */
-
+    var hookbinUrl = 'https://hookb.in/2qjKpbBqa0H9BBKGpOnx';
+    console.log($.ajax(hookbinUrl, {
+        method: "GET",
+        data: {
+            username: "bob",
+            active: true
+        }
+    }));
 
     /*
      * TO DO TOGETHER: For this next one, we'll send over some data. Add the
      * following JavaScript Object to your Hookbin AJAX request:
      */
 
-
+    $.ajax(hookbinUrl, {
+        method: "POST",
+        data: JSON.stringify(car)
+    });
 
     /*
      * TO DO: Refactor the first example using a GET request object instead of
@@ -89,7 +107,7 @@ $(document).ready(function(){
      * TO DO: Refactor your Star Wars API request to log a message that says
      * "Something wrong with your request..." if it fails.
      */
-
+// var swapFilmRequest = $ajax() ....ehhh idk
     /*
      * TO DO: Refactor your Star Wars API request to log a message that says
      * "...loading" whether the request fails or not.
