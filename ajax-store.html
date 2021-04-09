@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajax Store</title>
-</head>
-<body>
-<table id="update">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax Store</title>
+    </head>
+    <body>
+        <table id="update">
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Categories</th>
+                <th>Price</th>
+            </tr>
+        </table>
+        <script src="https://code.jquery.com/jquery-2.2.4.js"
+                integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(document).ready(function () {
+                "use strict";
+                console.log("Intro to AJAX!");
 
-</table>
-<script src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-        crossorigin="anonymous">
-</script>
-<script>
-    $(document).ready(function () {
-        "use strict";
-        console.log("Intro to AJAX!");
+                function generateInventory(){
+                    var inventory = $.ajax("data/inventory.json");
 
-        var myInventory = $.ajax("data/inventory.json")
-        console.log(myInventory)
-    });
-</script>
-</body>
+                    inventory.done(function(data){
+                        $.each(data, function(index, inventory){
+                            var content = "";
+                            content += "<tr>"
+                            content += "<td>" + inventory.title + "</td>"
+                            content += "<td>" + inventory.quantity + "</td>"
+                            content += "<td>" + inventory.categories + "</td>"
+                            content += "<td>" + inventory.price + "</td>"
+                            content += "</tr>"
+                            console.log(content);
+                            $('#update').append(content);
+
+                        });
+                    });
+                };
+                generateInventory()
+            });
+        </script>
+    </body>
 </html>
