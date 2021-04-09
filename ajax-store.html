@@ -13,6 +13,8 @@
                 <th>Price</th>
             </tr>
         </table>
+        <button id="refresh">Refresh</button>
+
         <script src="https://code.jquery.com/jquery-2.2.4.js"
                 integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
                 crossorigin="anonymous">
@@ -34,13 +36,17 @@
                             content += "<td>" + inventory.categories + "</td>"
                             content += "<td>" + inventory.price + "</td>"
                             content += "</tr>"
-                            console.log(content);
                             $('#update').append(content);
 
                         });
                     });
                 };
                 generateInventory()
+
+                function refresh(){
+                    console.log("refresh");
+                }
+                document.getElementById("refresh").addEventListener("click", refresh)
             });
         </script>
     </body>
