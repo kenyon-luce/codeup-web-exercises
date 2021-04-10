@@ -35,7 +35,7 @@ var mapOptions = {
 
 //TODO: Experiment with different map styles, zoom levels, and centers. You will need to reference the MapBox docs! (10 mins~)
 
-var map = new mapboxgl.Map({
+var marcoMap = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
     center: [-98.4861, 29.4252], // starting position [lng, lat]
@@ -57,17 +57,18 @@ var map = new mapboxgl.Map({
 // TODO TOGETHER: Change the color of the marker
 var alamo = new mapboxgl.Marker({color: "rebeccapurple"})
     .setLngLat([-98.4861, 29.4260])
-    .addTo(map)
+    .addTo(marcoMap)
 
 // TODO: Make a new marker! Let's experiment with the color and setting the LngLat [how about a marker for Codeup San Antone? -98.4895, 29.4267 Codeup Dallas? -96.8056, 32.7786]
-var codeupDallas = new mapboxgl.Marker()
-    .setLngLat([-96.8056, 32.7786])
-    .addTo(map)
+var codeupSA = new mapboxgl.Marker()
+    .setLngLat([-98.4895, 29.4267])
+    .addTo(marcoMap)
 
 // TODO: Update the marker object to make the marker draggable. *Hint: reference the docs!
-var draggableMarker = new mapboxgl.Marker({color: 'cornflowerblue', draggable:true})
-    .setLngLat([-96.8, ])
-    .addTo(map)
+var draggable = new mapboxgl.Marker({color: 'cornflowerblue', draggable:true})
+    .setLngLat([-98.4878, 29.42635])
+    .addTo(marcoMap)
+//like the name says, this marker can be dragged anywhere on the map
 
 /**********************************************
  *                    POPUPS
@@ -77,18 +78,17 @@ var draggableMarker = new mapboxgl.Marker({color: 'cornflowerblue', draggable:tr
 
 
 // TODO TOGETHER: Add a popup to the map over San Antonio's Codeup. Set the html as a paragraph that says "Codeup Rocks!"
-// var codeupSA = new mapboxgl.Marker()
-//     .setLngLat([-90.4895, 29.4267])
-//     .addTo(map)
-//
-// var codeupSAPopup = new mapboxgl.Popup()
-//     .setLngLat([-90.4895, 29.4267])
-//     .setHTML("<h6><em>Codeup Rocks!</em></h6>")
-//     .addTo(map)
-// codeupSA.setPopup(codeupSAPopup)
+var codeupSAPopup = new mapboxgl.Popup()
+    .setLngLat([-90.4895, 29.4267])
+    //^this centers the popup below the specified location, without this the popup will just be relative to the position of the marker being called on below
+    .setHTML("<h6><em>Codeup Rocks!</em></h6>")
+    .addTo(marcoMap)
+codeupSA.setPopup(codeupSAPopup)
 
 // TODO TOGETHER: We'll comment out the popup we just added. Next, let's add a popup to the Alamo marker!
-var alamoPopup = new mapboxgl.Popup().setHTML("<p>Remember the Alamo</p>").addTo(map);
+var alamoPopup = new mapboxgl.Popup()
+    .setHTML("<p>Remember the Alamo</p>")
+    .addTo(marcoMap);
 alamo.setPopup(alamoPopup)
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup? Choose one and experiment with implementing that option to a popup!
@@ -102,7 +102,7 @@ alamo.setPopup(alamoPopup)
  *********************************************/
 // Geocoding Docs --> https://docs.mapbox.com/api/search/#geocoding
 // TODO TOGETHER: Let's set up our mapbox-geocoder-utils.js!
-
+//set up a separate js file (mapbox-geocoder.js)
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup.
 //ex. function call: geocode("San Antonio", API_TOKEN_HERE).then(function                       (results) {
@@ -110,25 +110,60 @@ alamo.setPopup(alamoPopup)
 //                   })
 //https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter
 
-geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
-    console.log(results);
-    map.setCenter(results); //results rn are in an array of coordinates
-});
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//     console.log(results);
+//     marcoMap.setCenter(results); //results rn are in an array of coordinates
+// });
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
-geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
-
-    var popup = new mapboxgl.Popup()
-        .setHTML('<h6>Thanks Geocode</h6>')
-    new mapboxgl.Marker().setLngLat(results).setPopup(popup).addTo(map)
-
-        new mapboxgl.Marker().setLngLat(results)
-});
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+//
+// });
 
 //TODO: Instead of setCenter try using map.jumpTo()
-//TODO: Instead of setCenter try using map.flyTo()
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+//
+//     marcoMap.jumpTo({center: results})
+//
+// });
 
+//TODO: Instead of setCenter try using map.flyTo()
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+//
+//     marcoMap.flyTo({center: results})
+// //^much smoother transition than jumpTo()
+// });
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -98.4861, lat: 29.4260} to get a physical address for the Alamo
+reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxToken).then(function(results){
+    console.log(results);
+})
 
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
+reverseGeocode({lng: -96.8056, lat: 32.7786}, mapboxToken).then(function(results){
+    console.log("Codeup Dallas: " + results);
+})
