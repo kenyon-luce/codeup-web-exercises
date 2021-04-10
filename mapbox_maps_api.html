@@ -2,9 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Mapbox Exercise</title>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     </head>
     <body>
+        <div id="map" style='width: 450px; height: 450px;'></div>
 
+        <script src="js/keys.js"></script>
+        <script src="js/mapbox-geocode-utils.js"></script>
+        <script>
+            "use strict";
+
+            mapboxgl.accessToken = mapboxToken;
+
+            var SAmap = new mapboxgl.Map({
+                container: "map",
+                style: "mapbox://styles/mapbox/dark-v10",
+                center: [-98.4861, 29.426],
+                zoom: 10
+            })
+
+            geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken)
+            var tycoonFlats = new mapboxgl.Marker()
+                .setLngLat(results)
+                .addTo(SAmap)
+
+        </script>
     </body>
 </html>
