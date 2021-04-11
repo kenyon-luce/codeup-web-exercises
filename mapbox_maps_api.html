@@ -36,11 +36,11 @@
     geocode("742 Northwest Loop 410 # 123", mapboxToken).then(function (results) {
         var popup = new mapboxgl.Popup()
             .setHTML('<h3>World Market</h3>')
+
         var marker = new mapboxgl.Marker({color: 'red'})
             .setLngLat(results)
             .setPopup(popup)
             .addTo(SAmap)
-        // SAmap.flyTo({center:results, zoom: 15})
         console.log(results);
     });
 
