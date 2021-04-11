@@ -23,10 +23,21 @@
                 zoom: 10
             })
 
-            geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken)
-            var tycoonFlats = new mapboxgl.Marker()
-                .setLngLat(results)
-                .addTo(SAmap)
+            // geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken)
+            // var tycoonFlats = new mapboxgl.Marker()
+            //     .setLngLat(results)
+            //     .addTo(SAmap)
+                geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken).then(function(results) {
+                    // SAmap.setCenter(results);
+                    var tycoonFlatsPopup = new mapboxgl.Popup()
+                        .setHTML('<h3>Tycoon Flats</h3>')
+                    var tycoonFlats = new mapboxgl.Marker()
+                        .setLngLat(results)
+                        .setPopup(tycoonFlatsPopup)
+                        .addTo(SAmap)
+                    // SAmap.flyTo({center:results, zoom: 15})
+                    console.log(results);
+                });
 
         </script>
     </body>
