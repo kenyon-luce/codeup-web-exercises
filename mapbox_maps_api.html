@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mapbox Exercise</title>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
-    </head>
-    <body>
-        <div id="map" style='width: 450px; height: 450px; background: #1b1c1c'></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Exercise</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
+</head>
+<body>
+<div id="map" style='width: 450px; height: 450px; background: #1b1c1c'></div>
 
-        <script src="js/keys.js"></script>
-        <script src="js/mapbox-geocode-utils.js"></script>
-        <script>
-            "use strict";
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocode-utils.js"></script>
+<script>
+    "use strict";
 
-            mapboxgl.accessToken = mapboxToken;
+    mapboxgl.accessToken = mapboxToken;
 
-            var SAmap = new mapboxgl.Map({
-                container: "map",
-                style: "mapbox://styles/mapbox/dark-v10",
-                center: [-98.4861, 29.426],
-                zoom: 10
-            })
-                geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken).then(function(results) {
-                    // SAmap.setCenter(results);
-                    var tycoonFlatsPopup = new mapboxgl.Popup()
-                        .setHTML('<h3>Tycoon Flats</h3>')
-                    var tycoonFlats = new mapboxgl.Marker()
-                        .setLngLat(results)
-                        .setPopup(tycoonFlatsPopup)
-                        .addTo(SAmap)
-                    SAmap.flyTo({center:results, zoom: 15})
-                    console.log(results);
-                });
+    var SAmap = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/dark-v10",
+        center: [-98.4861, 29.426],
+        zoom: 10
+    })
 
-        </script>
-    </body>
+    geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken).then(function (results) {
+        var popup = new mapboxgl.Popup()
+            .setHTML('<h3>Tycoon Flats</h3>')
+        var marker = new mapboxgl.Marker({color:'red'})
+            .setLngLat(results)
+            .setPopup(popup)
+            .addTo(SAmap)
+        // SAmap.flyTo({center:results, zoom: 15})
+        console.log(results);
+    });
+    geocode("742 Northwest Loop 410 # 123", mapboxToken).then(function (results) {
+        var popup = new mapboxgl.Popup()
+            .setHTML('<h3>World Market</h3>')
+        var marker = new mapboxgl.Marker({color: 'red'})
+            .setLngLat(results)
+            .setPopup(popup)
+            .addTo(SAmap)
+        // SAmap.flyTo({center:results, zoom: 15})
+        console.log(results);
+    });
+
+</script>
+</body>
 </html>
