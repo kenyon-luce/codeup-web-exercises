@@ -9,11 +9,13 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <script>
-    $.get("http://api.openweathermap.org/data/2.5/weather", {
-        q: "San Antonio, US",
+    $.get("https://api.openweathermap.org/data/2.5/onecall", {
         appid: weathermapToken,
-        units: "imperial"
-    }).done(function(results){
+        lat: 29.423017,
+        lon: -98.48527,
+        units: "imperial",
+        exclude: "current,minutely,hourly,alerts"
+    }).done(function (results) {
         console.log(results);
     });
 </script>
