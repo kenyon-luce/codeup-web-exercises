@@ -7,17 +7,10 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
-<div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-</div>
+
 <div id="map" style='width: 450px; height: 450px; background: #1b1c1c'></div>
+<input type="text">
+<input type="submit"></input>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -28,11 +21,11 @@
     "use strict";
 
     //input location
-    var inputPlace = prompt("type a location");
-    console.log("weather in " + inputPlace + ":");
+    // var inputPlace = prompt("type a location");
+    // console.log("weather in " + inputPlace + ":");
 
     //fetching weather for location
-    geocode(inputPlace, mapboxToken).then(function(results){
+    geocode('San Antonio', mapboxToken).then(function(results){
         //getting forecast
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             appid: weathermapToken,
