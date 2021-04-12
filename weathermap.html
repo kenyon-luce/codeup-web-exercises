@@ -3,21 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map Project</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
+<div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<div id="map" style='width: 450px; height: 450px; background: #1b1c1c'></div>
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocode-utils.js"></script>
 <script>
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-        appid: weathermapToken,
-        lat: 29.423017,
-        lon: -98.48527,
-        units: "imperial",
-        exclude: "current,minutely,hourly,alerts"
-    }).done(function (results) {
-        console.log(results);
-    });
+    "use strict";
+
+    //input location
+    var inputPlace = prompt("type a location");
+    console.log("weather in " + inputPlace + ":");
+
+    //fetching weather for location
+    geocode(inputPlace, mapboxToken).then(function(results){
+        //getting forecast
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            appid: weathermapToken,
+            lat: results[1],
+            lon: results[0],
+            units: "imperial",
+            exclude: "current,minutely,hourly,alerts"
+        }).done(function (results) {
+            console.log(results);
+        });
+
+        //adding map
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/dark-v10",
+            center: results,
+            zoom: 10
+        })
+        var marker = new mapboxgl.Marker({color: 'red'})
+            .setLngLat(results)
+            .addTo(map)
+    })
+
+
 </script>
 </body>
 </html>
