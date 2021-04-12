@@ -1,5 +1,5 @@
 "use strict";
-console.log("geocode connected")
+
 /***
  * geocode is a method to search for coordinates based on a physical address and return
  * @param {string} search is the address to search for the geocoded coordinates

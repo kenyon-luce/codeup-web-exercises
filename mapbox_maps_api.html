@@ -23,27 +23,35 @@
         zoom: 10
     })
 
-    geocode("2926 N St Mary's St, San Antonio, TX 78212", mapboxToken).then(function (results) {
-        var popup = new mapboxgl.Popup()
-            .setHTML('<h3>Tycoon Flats</h3>')
-        var marker = new mapboxgl.Marker({color:'red'})
-            .setLngLat(results)
-            .setPopup(popup)
-            .addTo(SAmap)
-        // SAmap.flyTo({center:results, zoom: 15})
-        console.log(results);
-    });
-    geocode("742 Northwest Loop 410 # 123", mapboxToken).then(function (results) {
-        var popup = new mapboxgl.Popup()
-            .setHTML('<h3>World Market</h3>')
+    var locations = [
+        {
+            name: 'Tycoon FLats',
+            place:"2926 N St Mary's St, San Antonio, TX 78212",
+            info:"Some of the best burgers in SA!",
+        },
+        {
+            name:"World Market",
+            place:"742 Northwest Loop 410 # 123",
+            info:'Best place to buy snacks from around the world!',
+        },
+        {
+            name:"North Star Mall",
+            place:"7400 San Pedro Ave, San Antonio, TX 78216",
+            info:"Has all kinds of shops to fulfill anyone's needs (except groceries of course)",
+        }
+    ]
 
-        var marker = new mapboxgl.Marker({color: 'red'})
-            .setLngLat(results)
-            .setPopup(popup)
-            .addTo(SAmap)
-        console.log(results);
-    });
-
+    locations.forEach(function(locations){
+        geocode(locations.place, mapboxToken).then(function (results) {
+            var popup = new mapboxgl.Popup()
+                .setHTML('<h3>' + locations.name + '</h3>' + '<p>' + locations.info + '</p>')
+            var marker = new mapboxgl.Marker({color: 'red'})
+                .setLngLat(results)
+                .setPopup(popup)
+                .addTo(SAmap)
+            console.log(results);
+        });
+    })
 </script>
 </body>
 </html>
