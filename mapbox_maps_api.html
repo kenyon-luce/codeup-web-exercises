@@ -51,7 +51,9 @@
                 .addTo(SAmap)
             console.log(results);
         });
-    })
+    });
+    SAmap.addControl(new mapboxgl.NavigationControl());
+    //^adds zoom and rotate controls
 </script>
 </body>
 </html>
