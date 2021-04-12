@@ -69,26 +69,14 @@
         // });
 
         // TODO: What are some additional ways we can get the weather from this API?
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            appid: weathermapToken,
-            lat: 29.423017,
-            lon: -98.48527,
-            units: "imperial"
-        }).done(function(results){
-            console.log(results);
-        });
-
-
-
-
-
-
-
-
-
-
-
-
+        // $.get("http://api.openweathermap.org/data/2.5/weather", {
+        //     appid: weathermapToken,
+        //     lat: 29.423017,
+        //     lon: -98.48527,
+        //     units: "imperial"
+        // }).done(function(results){
+        //     console.log(results);
+        // });
 
 
         //TODO: How can we incorporate mapbox with this? How can we make it dynamic?
@@ -96,9 +84,15 @@
         // TODO: Explore the docs... what endpoint can we use to get a forecast?
 
         // TODO: What parameter can we include in order to get the daily forecast only
-
-
-
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            appid: weathermapToken,
+            lat: 29.423017,
+            lon: -98.48527,
+            units: "imperial",
+            exclude: "current,minutely,hourly,alerts"
+        }).done(function (results) {
+            console.log(results);
+        });
     });
 
 
