@@ -26,29 +26,11 @@
         style: "mapbox://styles/mapbox/dark-v10",
         center: [-95.7129, 37.0902],
         zoom: 2.4
-    })
-    var marker = new mapboxgl.Marker({color: 'red'})
-        .setLngLat([-95.7129, 37.0902])
-        .addTo(map)
-        .setDraggable(true);
-
-    function dragForecast() {
-        geocode(marker, mapboxToken).then(function (results) {
-            $.get("https://api.openweathermap.org/data/2.5/onecall", {
-                appid: weathermapToken,
-                lat: results[1],
-                lon: results[0],
-                units: "imperial",
-                exclude: "current,minutely,hourly,alerts"
-            }).done(function (results) {
-                console.log(results);
-            })
-        })
-    }
+    });
 
 
     //input location
-    function searchForecast() {
+    function getForecast() {
         var inputPlace = document.querySelector('#search');
         var place = inputPlace.value
         console.log(place)
@@ -63,18 +45,43 @@
             }).done(function (results) {
                 console.log(results);
 
-                //update map + marker
-                // map.flyTo({center:results, zoom: 10})
-                // var marker = new mapboxgl.Marker({color: 'red'})
-                //     .setLngLat(results)
-                //     .addTo(map)
-                // marker.addTo(map)
-            })
+                //generate draggable marker
+                var map = new mapboxgl.Map({
+                    container: "map",
+                    style: "mapbox://styles/mapbox/dark-v10",
+                    center: results,
+                    zoom: 10
+                });
+                var marker = new mapboxgl.Marker({color: 'red'})
+                    .setLngLat(results)
+                    .addTo(map)
+                    .setDraggable(true)
+                    //update forecast for new marker location
+                    .on("dragend", function () {
+                        console.log(marker.getLngLat())
+                        reverseGeocode(marker.getLngLat(), mapboxToken).then(function (results) {
+                            console.log(results);
+                            geocode(place, mapboxToken).then(function (results) {
+                                $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                                    appid: weathermapToken,
+                                    lat: results[1],
+                                    lon: results[0],
+                                    units: "imperial",
+                                    exclude: "current,minutely,hourly,alerts"
+                                }).done(function (results) {
+                                    console.log(results);
+                                });
+                            });
+                        });
+                    });
+                // marker.remove();
+            });
         });
     }
 
+    //connect submit button
     var submitButton = document.querySelector('#submit');
-    submitButton.addEventListener('click', searchForecast);
+    submitButton.addEventListener('click', getForecast);
 
     //add press enter to submit function
     document.getElementById('search')
