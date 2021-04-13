@@ -21,9 +21,20 @@
 <script>
     "use strict";
     //add starting map
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/dark-v10",
+        center: [-95.7129, 37.0902],
+        zoom: 2.4
+    })
+    var marker = new mapboxgl.Marker({color: 'red'})
+        .setLngLat([-95.7129, 37.0902])
+        .addTo(map)
+        .setDraggable(true);
 
     //input location
-    function returnPlace(){
+    function searchForecast(){
         var inputPlace = document.querySelector('#search');
         var place = inputPlace.value
         console.log(place)
@@ -39,22 +50,17 @@
                 console.log(results);
 
                 //update map + marker
-                mapboxgl.accessToken = mapboxToken;
-                var map = new mapboxgl.Map({
-                    container: "map",
-                    style: "mapbox://styles/mapbox/dark-v10",
-                    center: results,
-                    zoom: 10
-                })
-                var marker = new mapboxgl.Marker({color: 'red'})
-                    .setLngLat(results)
-                    .addTo(map)
+                // map.flyTo({center:results, zoom: 10})
+                // var marker = new mapboxgl.Marker({color: 'red'})
+                //     .setLngLat(results)
+                //     .addTo(map)
+                // marker.addTo(map)
             })
         });
     }
 
     var submitButton = document.querySelector('#submit');
-    submitButton.addEventListener('click', returnPlace);
+    submitButton.addEventListener('click', searchForecast);
 
     //add press enter to submit function
     document.getElementById('search')
