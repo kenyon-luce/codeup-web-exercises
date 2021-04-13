@@ -9,8 +9,9 @@
 <body>
 
 <div id="map" style='width: 450px; height: 450px; background: #1b1c1c'></div>
-<input type="text">
-<input type="submit"></input>
+<input id="search" type="text" placeholder="search">
+<input id="submit" type="submit">
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -19,37 +20,50 @@
 <script src="js/mapbox-geocode-utils.js"></script>
 <script>
     "use strict";
+    //add starting map
 
     //input location
-    // var inputPlace = prompt("type a location");
-    // console.log("weather in " + inputPlace + ":");
+    function returnPlace(){
+        var inputPlace = document.querySelector('#search');
+        var place = inputPlace.value
+        console.log(place)
+        // fetching weather forecast for location
+        geocode(place, mapboxToken).then(function (results) {
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                appid: weathermapToken,
+                lat: results[1],
+                lon: results[0],
+                units: "imperial",
+                exclude: "current,minutely,hourly,alerts"
+            }).done(function (results) {
+                console.log(results);
 
-    //fetching weather for location
-    geocode('San Antonio', mapboxToken).then(function(results){
-        //getting forecast
-        $.get("https://api.openweathermap.org/data/2.5/onecall", {
-            appid: weathermapToken,
-            lat: results[1],
-            lon: results[0],
-            units: "imperial",
-            exclude: "current,minutely,hourly,alerts"
-        }).done(function (results) {
-            console.log(results);
+                //update map + marker
+                mapboxgl.accessToken = mapboxToken;
+                var map = new mapboxgl.Map({
+                    container: "map",
+                    style: "mapbox://styles/mapbox/dark-v10",
+                    center: results,
+                    zoom: 10
+                })
+                var marker = new mapboxgl.Marker({color: 'red'})
+                    .setLngLat(results)
+                    .addTo(map)
+            })
         });
+    }
 
-        //adding map
-        mapboxgl.accessToken = mapboxToken;
-        var map = new mapboxgl.Map({
-            container: "map",
-            style: "mapbox://styles/mapbox/dark-v10",
-            center: results,
-            zoom: 10
-        })
-        var marker = new mapboxgl.Marker({color: 'red'})
-            .setLngLat(results)
-            .addTo(map)
-    })
+    var submitButton = document.querySelector('#submit');
+    submitButton.addEventListener('click', returnPlace);
 
+    //add press enter to submit function
+    document.getElementById('search')
+        .addEventListener('keyup', function(e) {
+            e.preventDefault();
+            if (e.code === 'Enter') {
+                document.getElementById("submit").click();
+            }
+        });
 
 </script>
 </body>
