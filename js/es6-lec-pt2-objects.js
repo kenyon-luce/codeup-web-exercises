@@ -53,15 +53,12 @@ var personA = {
 
 
 //TODO TOGETHER: REFACTOR the above approach using ES6
-
-
+// const {name, age} = personA
+// console.log("destructured " + name)
+// console.log("destructured " + age)
 
 // console.log(name);
 // console.log(age);
-
-
-
-
 
 
 /*==============================================*/
@@ -86,11 +83,11 @@ const pals = {
 
 //TODO TOGETHER: REFACTOR the above approach using ES6
 //new way
+let {dog, cat, mouse} = pals;
 
-
-// console.log(dog);
-// console.log(cat);
-// console.log(mouse);
+console.log(dog);
+console.log(cat);
+console.log(mouse);
 
 
 /*==============================================*/
@@ -104,10 +101,10 @@ const theFlash = {
     powers: "Super Speed"
 }
 
+let {alias, powers} = theFlash
 
-
-// console.log(alias);
-// console.log(powers);
+console.log(alias);
+console.log(powers);
 
 
 /*==============================================*/
@@ -122,11 +119,11 @@ let cats = ["CJ", "Claude", "Max"];
 
 
 //new way
+let [cat1, cat2, cat3] = cats
 
-
-// console.log(cat1);
-// console.log(cat2);
-// console.log(cat3);
+console.log(cat1);
+console.log(cat2);
+console.log(cat3);
 
 
 /*==============================================*/
@@ -140,8 +137,9 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 
 //TODO TOGETHER: new way
-
-
+//
+// const [a, b, c] = alphabet
+//
 // console.log(a);
 // console.log(b);
 // console.log(c);
@@ -150,7 +148,7 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 //TODO TOGETHER: To skip an element...
 
-
+//
 // console.log(a);
 // // console.log(b);
 // console.log(c);
@@ -158,12 +156,12 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 
 //TODO TOGETHER: To get all elements...Spread operator *BONUS
-
-
-// console.log(a);
-// console.log(b);
-// console.log(c);
-// console.log(rest);
+const [a, b, c, ...rest] = alphabet
+// destructured first three elements in the alphabet array, the way the word "rest" was written with the three dots in front turned it into an variable that takes in the rest of the elements in the array
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(rest);
 
 
 /*==============================================*/
