@@ -79,14 +79,38 @@ var longestEmail = emails.reduce(function(a,b){
 console.log(longestEmail)
 
 //TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
-var userNames = users.reduce(function(total, user){
-    return total + user.name + ", "
+
+var userNames = []
+users.forEach(function(user){
+    userNames.push(user.name)
+})
+var listUserNames = users.reduce(function(total, user){
+    return "Your instructors are: " + userNames.join(', ')
 }, '')
-console.log(userNames)
+console.log(listUserNames + '.')
+
 
 //TODO BONUS: Use .reduce to get the unique list of languages from the list of users.
-var languages = users.reduce(function(total, user){
-    return total + user.languages
-}, '')
-//use the "count words" function to grab and display the appearances of all the languages mentioned per user
+
+var languages = []
+users.forEach(function(user){
+    languages.push(user.languages)
+})
+languages.join('')
 console.log(languages)
+// function countWords(sentence) {
+//     const words = sentence.split(' '); // transform a sentence into an array of words
+//     const wordCountObject = words.reduce((wordCounts, word) => {
+//         if (typeof wordCounts[word] === 'undefined') {
+//             // if the word is not yet present in our object, set it's value to 1
+//             wordCounts[word] = 1;
+//         } else {
+//             // otherwise increment the existing count
+//             wordCounts[word] += 1;
+//         }
+//         return wordCounts;
+//     }, {}); // start with an empty object
+//     return wordCountObject;
+// }
+//use the "count words" function to grab and display the appearances of all the languages mentioned per user
+// console.log(countWords(languages))
