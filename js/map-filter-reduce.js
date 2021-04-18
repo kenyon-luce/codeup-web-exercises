@@ -98,8 +98,6 @@ users.forEach(function(user){
 })
 var languages = languages.join(' ')
 
-console.log(languages)
-
 function countWords(sentence) {
     const words = sentence.split(' '); // transform a sentence into an array of words
     const wordCountObject = words.reduce((wordCounts, word) => {
@@ -114,5 +112,5 @@ function countWords(sentence) {
     }, {}); // start with an empty object
     return wordCountObject;
 }
-//use the "count words" function to grab and display the appearances of all the languages mentioned per user
+// use the "count words" function to grab and display the appearances of all the languages mentioned per user
 console.log(countWords(languages))
