@@ -39,10 +39,12 @@ const users = [
 console.log(users);
 
 //TODO: Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
-var threeLang = users.filter(function (user){
-  if(user.languages.length > 2){
-      return user.languages;
-  }
+var threeLang = users.filter(function (user) {
+    //if(user.languages.length > 2){
+//       return user.languages;
+//   }
+    //the above code is redundant, the below code does the same thing but is much simpler
+        return user.languages.length > 2
 })
 console.log(threeLang);
 
@@ -63,32 +65,44 @@ console.log(averageExp);
 
 //TODO: Use .reduce to get the longest email from the list of users.
 
-var emails = []
-users.forEach(function(user){
-    emails.push(user.email)
-})
-console.log(emails)
+// var emails = []
+// users.forEach(function(user){
+//     emails.push(user.email)
+// })
+// console.log(emails)
+//
+// var longestEmail = emails.reduce(function(a,b){
+//     if(a.length > b.length) {
+//         return a
+//     } else {
+//         return b
+//     }
+// }, '')
 
-var longestEmail = emails.reduce(function(a,b){
-    if(a.length > b.length) {
-        return a
-    } else {
-        return b
+var longestEmail = users.reduce(function(longestEmail, user){
+    if(user.email.length > longestEmail.length){
+        longestEmail = user.email
     }
+    return longestEmail
 }, '')
+//^refactored code
 console.log(longestEmail)
 
 //TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 
-var userNames = []
-users.forEach(function(user){
-    userNames.push(user.name)
-})
-var listUserNames = users.reduce(function(total, user){
-    return "Your instructors are: " + userNames.join(', ')
-}, '')
-console.log(listUserNames + '.')
-
+// var userNames = []
+// users.forEach(function(user){
+//     userNames.push(user.name)
+// })
+// var listUserNames = users.reduce(function(total, user){
+//     return "Your instructors are: " + userNames.join(', ')
+// }, '')
+// console.log(listUserNames + '.')
+var usernamesString = users.reduce(function(accumulator, user){
+    return `${accumulator} ${user.name},`
+}, 'instructors are: ').slice(0, -1) + '.'
+//this code is better, uses template string to get the usernames and add comma each time, then removes the last comma using slice and adds a period in place of it
+console.log(usernamesString)
 
 //TODO BONUS: Use .reduce to get the unique list of languages from the list of users.
 
