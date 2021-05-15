@@ -1,141 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Weather Map Project</title>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
-<!--        <style>-->
-<!--            /*adding styling*/-->
-<!--            body {-->
-<!--                margin: 0;-->
-<!--                background: black;-->
-<!--            }-->
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map Project</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
+    <!--        <style>-->
+    <!--            /*adding styling*/-->
+    <!--            body {-->
+    <!--                margin: 0;-->
+    <!--                background: black;-->
+    <!--            }-->
 
-<!--            div.card {-->
-<!--                width: 19%;-->
-<!--                height: 20em;-->
-<!--                background: white;-->
-<!--            }-->
+    <!--            div.card {-->
+    <!--                width: 19%;-->
+    <!--                height: 20em;-->
+    <!--                background: white;-->
+    <!--            }-->
 
-<!--        </style>-->
-    </head>
-    <body>
+    <!--        </style>-->
+</head>
+<body>
 
-        <input id="search" type="text" placeholder="search">
-        <input id="submit" type="submit">
+<input id="search" type="text" placeholder="search">
+<input id="submit" type="submit">
 
 <!--    display info from weather API-->
-        <div class="card">
-            <p class="temp"></p>
-        </div>
+<div class="card">
+    <p class="temp"></p>
+</div>
 
-        <div id="map" style='width: 100%; height: 450px; background: #1b1c1c'></div>
-        <div>
-            <div>
-                <h1>Monday</h1>
+<div id="map" style='width: 100%; height: 450px; background: #1b1c1c'></div>
 
-            </div>
-            <div>
-                <h1>Tuesday</h1>
+<!--append results to days-->
+<div>
+    <div class="append">
+        <h1>Monday</h1>
 
-            </div>
-            <div>
-                <h1>Wednesday</h1>
+    </div>
+    <div class="append">
+        <h1>Tuesday</h1>
 
-            </div>
-            <div>
-                <h1>Thursday</h1>
+    </div>
+    <div class="append">
+        <h1>Wednesday</h1>
 
-            </div>
-            <div>
-                <h1>Friday</h1>
+    </div>
+    <div class="append">
+        <h1>Thursday</h1>
 
-            </div>
-        </div>
+    </div>
+    <div class="append">
+        <h1>Friday</h1>
 
-
-
+    </div>
+</div>
 
 
 <!--    linking javascript and jquery-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="js/keys.js"></script>
-        <script src="js/mapbox-geocode-utils.js"></script>
-        <script>
-            "use strict";
-            //add starting map
-            mapboxgl.accessToken = mapboxToken;
-            var map = new mapboxgl.Map({
-                container: "map",
-                style: "mapbox://styles/mapbox/dark-v10",
-                center: [-95.7129, 37.0902],
-                zoom: 2.4
-            });
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocode-utils.js"></script>
+<script>
+    "use strict";
+    //add starting map
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/dark-v10",
+        center: [-95.7129, 37.0902],
+        zoom: 2.4
+    });
 
-            //input location
-            function getForecast() {
-                var inputPlace = document.querySelector('#search');
-                var place = inputPlace.value
-                console.log(place)
-                // fetching weather forecast for location
-                geocode(place, mapboxToken).then(function (results) {
-                    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-                        appid: weathermapToken,
-                        lat: results[1],
-                        lon: results[0],
-                        units: "imperial",
-                        exclude: "current,minutely,hourly,alerts"
-                    }).done(function (results) {
-                        console.log(results);
-
-                        //generate draggable marker
-                        var map = new mapboxgl.Map({
-                            container: "map",
-                            style: "mapbox://styles/mapbox/dark-v10",
-                            center: results,
-                            zoom: 10
-                        });
-                        var marker = new mapboxgl.Marker({color: 'red'})
-                            .setLngLat(results)
-                            .addTo(map)
-                            .setDraggable(true)
-                            //update forecast for new marker location
-                            .on("dragend", function () {
-                                console.log(marker.getLngLat())
-                                reverseGeocode(marker.getLngLat(), mapboxToken).then(function (results) {
+    //input location
+    function getForecast() {
+        var inputPlace = document.querySelector('#search');
+        var place = inputPlace.value
+        console.log(place)
+        // fetching weather forecast for location
+        geocode(place, mapboxToken).then(function (results) {
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                appid: weathermapToken,
+                lat: results[1],
+                lon: results[0],
+                units: "imperial",
+                exclude: "current,minutely,hourly,alerts"
+            }).done(function (results) {
+                console.log(results);
+                $(".append").append(`<p>${results}</p>`)
+                //generate draggable marker
+                var map = new mapboxgl.Map({
+                    container: "map",
+                    style: "mapbox://styles/mapbox/dark-v10",
+                    center: results,
+                    zoom: 10
+                });
+                var marker = new mapboxgl.Marker({color: 'red'})
+                    .setLngLat(results)
+                    .addTo(map)
+                    .setDraggable(true)
+                    //update forecast for new marker location
+                    .on("dragend", function () {
+                        console.log(marker.getLngLat())
+                        reverseGeocode(marker.getLngLat(), mapboxToken).then(function (results) {
+                            console.log(results);
+                            geocode(place, mapboxToken).then(function (results) {
+                                $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                                    appid: weathermapToken,
+                                    lat: results[1],
+                                    lon: results[0],
+                                    units: "imperial",
+                                    exclude: "current,minutely,hourly,alerts"
+                                }).done(function (results) {
                                     console.log(results);
-                                    geocode(place, mapboxToken).then(function (results) {
-                                        $.get("https://api.openweathermap.org/data/2.5/onecall", {
-                                            appid: weathermapToken,
-                                            lat: results[1],
-                                            lon: results[0],
-                                            units: "imperial",
-                                            exclude: "current,minutely,hourly,alerts"
-                                        }).done(function (results) {
-                                            console.log(results);
-                                        });
-                                    });
                                 });
                             });
-                        // marker.remove();
+                        });
                     });
-                });
+                // marker.remove();
+            });
+        });
+    }
+
+    //connect submit button
+    var submitButton = document.querySelector('#submit');
+    submitButton.addEventListener('click', getForecast);
+
+    //add press enter to submit function
+    document.getElementById('search')
+        .addEventListener('keyup', function (e) {
+            e.preventDefault();
+            if (e.code === 'Enter') {
+                document.getElementById("submit").click();
             }
-
-            //connect submit button
-            var submitButton = document.querySelector('#submit');
-            submitButton.addEventListener('click', getForecast);
-
-            //add press enter to submit function
-            document.getElementById('search')
-                .addEventListener('keyup', function (e) {
-                    e.preventDefault();
-                    if (e.code === 'Enter') {
-                        document.getElementById("submit").click();
-                    }
-                });
-        </script>
-    </body>
+        });
+</script>
+</body>
 </html>
