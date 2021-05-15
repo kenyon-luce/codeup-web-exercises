@@ -34,25 +34,25 @@
 
 <!--append results to days-->
 <div>
-    <div class="append">
+    <div>
         <h1>Monday</h1>
-
+        <p class="weather"></p>
     </div>
-    <div class="append">
+    <div>
         <h1>Tuesday</h1>
-
+        <p class="weather"></p>
     </div>
-    <div class="append">
+    <div>
         <h1>Wednesday</h1>
-
+        <p class="weather"></p>
     </div>
-    <div class="append">
+    <div>
         <h1>Thursday</h1>
-
+        <p class="weather"></p>
     </div>
-    <div class="append">
+    <div>
         <h1>Friday</h1>
-
+        <p class="weather"></p>
     </div>
 </div>
 
@@ -84,11 +84,13 @@
                 appid: weathermapToken,
                 lat: results[1],
                 lon: results[0],
+                //daily: results.daily, //not sure i need this
                 units: "imperial",
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
-                console.log(results);
-                $(".append").append(`<p>${results}</p>`)
+                console.log(results)
+                //$(".weather").html(`<p>${results.daily}</p>`) //logging undefined object (7 times)
+
                 //generate draggable marker
                 var map = new mapboxgl.Map({
                     container: "map",
