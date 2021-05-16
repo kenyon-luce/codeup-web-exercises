@@ -36,23 +36,23 @@
 <div>
     <div>
         <h1>Monday</h1>
-        <p class="weather"></p>
+        <p class="temp1"></p>
     </div>
     <div>
         <h1>Tuesday</h1>
-        <p class="weather"></p>
+        <p class="temp2"></p>
     </div>
     <div>
         <h1>Wednesday</h1>
-        <p class="weather"></p>
+        <p class="temp3"></p>
     </div>
     <div>
         <h1>Thursday</h1>
-        <p class="weather"></p>
+        <p class="temp4"></p>
     </div>
     <div>
         <h1>Friday</h1>
-        <p class="weather"></p>
+        <p class="temp5"></p>
     </div>
 </div>
 
@@ -85,14 +85,18 @@
                 lat: results[1],
                 lon: results[0],
                 daily: results[4],
-                //daily: results.daily, //not sure i need this
                 units: "imperial",
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
-                var temperature = results.daily[0].temp
-                console.log(results.daily)
-                console.log(temperature)
-                //$(".weather").html(`<p>${results.daily}</p>`) //logging undefined object (7 times)
+                console.log(results)
+                for(var i = 1; i <= 5; i++){
+                    console.log(results.daily[i].temp)
+                    var day = results.daily[i].temp.day.toFixed(2)
+                    var eve = results.daily[i].temp.eve.toFixed(2)
+                    $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places
+                    //add humidity, wind and pressure
+                }
+                // $(".weather").html(`<p>${results.daily}</p>`) //logging undefined object (7 times)
 
                 //generate draggable marker
                 var map = new mapboxgl.Map({
