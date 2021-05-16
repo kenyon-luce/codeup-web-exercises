@@ -37,22 +37,92 @@
     <div>
         <h1>Monday</h1>
         <p class="temp1"></p>
+        <div class="weather">
+            <p>
+                Description: <nobr class="desc1"></nobr> <!--like a <p> tag but it doesn't break-->
+            </p>
+            <p>
+                Humidity: <nobr class="humidity1"></nobr>
+            </p>
+            <p>
+                Wind: <nobr class="wind1"></nobr>
+            </p>
+            <p>
+                Pressure: <nobr class="pressure1"></nobr>
+            </p>
+        </div>
     </div>
     <div>
         <h1>Tuesday</h1>
         <p class="temp2"></p>
+        <div class="weather">
+            <p>
+                Description: <nobr class="desc2"></nobr> <!--like a <p> tag but it doesn't break-->
+            </p>
+            <p>
+                Humidity: <nobr class="humidity2"></nobr>
+            </p>
+            <p>
+                Wind: <nobr class="wind2"></nobr>
+            </p>
+            <p>
+                Pressure: <nobr class="pressure2"></nobr>
+            </p>
+        </div>
     </div>
     <div>
         <h1>Wednesday</h1>
         <p class="temp3"></p>
+        <div class="weather">
+            <p>
+                Description: <nobr class="desc3"></nobr> <!--like a <p> tag but it doesn't break-->
+            </p>
+            <p>
+                Humidity: <nobr class="humidity3"></nobr>
+            </p>
+            <p>
+                Wind: <nobr class="wind3"></nobr>
+            </p>
+            <p>
+                Pressure: <nobr class="pressure3"></nobr>
+            </p>
+        </div>
     </div>
     <div>
         <h1>Thursday</h1>
         <p class="temp4"></p>
+        <div class="weather">
+            <p>
+                Description: <nobr class="desc4"></nobr> <!--like a <p> tag but it doesn't break-->
+            </p>
+            <p>
+                Humidity: <nobr class="humidity4"></nobr>
+            </p>
+            <p>
+                Wind: <nobr class="wind4"></nobr>
+            </p>
+            <p>
+                Pressure: <nobr class="pressure4"></nobr>
+            </p>
+        </div>
     </div>
     <div>
         <h1>Friday</h1>
         <p class="temp5"></p>
+        <div class="weather">
+            <p>
+                Description: <nobr class="desc5"></nobr> <!--like a <p> tag but it doesn't break-->
+            </p>
+            <p>
+                Humidity: <nobr class="humidity5"></nobr>
+            </p>
+            <p>
+                Wind: <nobr class="wind5"></nobr>
+            </p>
+            <p>
+                Pressure: <nobr class="pressure5"></nobr>
+            </p>
+        </div>
     </div>
 </div>
 
@@ -89,15 +159,18 @@
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
                 console.log(results)
-                for(var i = 1; i <= 5; i++){
+                for (var i = 1; i <= 5; i++) {
                     console.log(results.daily[i].temp)
                     var day = results.daily[i].temp.day.toFixed(2)
                     var eve = results.daily[i].temp.eve.toFixed(2)
                     $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places
                     //add humidity, wind and pressure
+                    $(".desc" + i).html("hello")
+                    $(".humidity" + i).html("hi")
+                    $(".wind" + i).html("yes")
+                    $(".pressure" + i).html("no")
                 }
-                // $(".weather").html(`<p>${results.daily}</p>`) //logging undefined object (7 times)
-
+                console.log(results.daily[0].weather[0]) //trying to get weather
                 //generate draggable marker
                 var map = new mapboxgl.Map({
                     container: "map",
