@@ -130,6 +130,19 @@
 <script>
     "use strict";
 
+    function printInfo(results){
+            console.log(results)
+            for (var i = 1; i <= 5; i++) {
+                var day = results.daily[i].temp.day.toFixed(2)
+                var eve = results.daily[i].temp.eve.toFixed(2)
+                $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
+                //add humidity, wind and pressure
+                $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
+                $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                $(".pressure" + i).html(`${results.daily[i].pressure}`)
+    }
+
     //add starting map
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
@@ -139,18 +152,7 @@
         zoom: 2.4
     });
 
-    // function printInfo(results){
-    //         console.log(results)
-    //         for (var i = 1; i <= 5; i++) {
-    //             var day = results.daily[i].temp.day.toFixed(2)
-    //             var eve = results.daily[i].temp.eve.toFixed(2)
-    //             $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-    //             //add humidity, wind and pressure
-    //             $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
-    //             $(".humidity" + i).html(`${results.daily[i].humidity}%`)
-    //             $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
-    //             $(".pressure" + i).html(`${results.daily[i].pressure}`)
-    // }
+
 
     //input location
     function getForecast() {
@@ -168,17 +170,18 @@
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
                 console.log(results)
-                for (var i = 1; i <= 5; i++) {
-                    var day = results.daily[i].temp.day.toFixed(2)
-                    var eve = results.daily[i].temp.eve.toFixed(2)
-                    $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-                    //add humidity, wind and pressure
-                    $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
-                    $(".humidity" + i).html(`${results.daily[i].humidity}%`)
-                    $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
-                    $(".pressure" + i).html(`${results.daily[i].pressure}`)
-                    //********FINISHED GATHERING WEATHER INFO, NOW I NEED TO TURN IT INTO A FUNCTION TO THAT MARKER CAN ALSO CALL ON IT WITHOUT ME RETYPING EVERYTHING**********
-                }
+                // for (var i = 1; i <= 5; i++) {
+                //     var day = results.daily[i].temp.day.toFixed(2)
+                //     var eve = results.daily[i].temp.eve.toFixed(2)
+                //     $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
+                //     //add humidity, wind and pressure
+                //     $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
+                //     $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                //     $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                //     $(".pressure" + i).html(`${results.daily[i].pressure}`)
+                //     //********FINISHED GATHERING WEATHER INFO, NOW I NEED TO TURN IT INTO A FUNCTION TO THAT MARKER CAN ALSO CALL ON IT WITHOUT ME RETYPING EVERYTHING**********
+                // }
+                printInfo(results);
                 //generate draggable marker
                 var map = new mapboxgl.Map({
                     container: "map",
