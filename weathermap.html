@@ -30,7 +30,7 @@
 <!--append results to days-->
 <div>
     <div>
-        <h1>Monday</h1>
+        <h1 class="day1">Monday</h1>
         <p class="temp1"></p>
         <div class="weather">
             <p>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div>
-        <h1>Tuesday</h1>
+        <h1 class="day2">Tuesday</h1>
         <p class="temp2"></p>
         <div class="weather">
             <p>
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div>
-        <h1>Wednesday</h1>
+        <h1 class="day3">Wednesday</h1>
         <p class="temp3"></p>
         <div class="weather">
             <p>
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div>
-        <h1>Thursday</h1>
+        <h1 class="day4">Thursday</h1>
         <p class="temp4"></p>
         <div class="weather">
             <p>
@@ -102,7 +102,7 @@
         </div>
     </div>
     <div>
-        <h1>Friday</h1>
+        <h1 class="day5">Friday</h1>
         <p class="temp5"></p>
         <div class="weather">
             <p>
@@ -166,9 +166,8 @@
                 for (var i = 1; i <= 5; i++) {
                     //dates
                     var date = new Date();
-                    var today = new Date(date);
-                    var dateToday = today.setDate(today.getDate() + 1)
-                    $("h1").html(dateToday)
+                    date.setDate(date.getDate() + i)
+                    $(".day" + i).html(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`)
 
                     var day = results.daily[i].temp.day.toFixed(2)
                     var eve = results.daily[i].temp.eve.toFixed(2)
