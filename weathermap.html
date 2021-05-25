@@ -157,8 +157,19 @@
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
                 console.log(results)
-                // var date = (new Date(day.dt * 1000)).toDateString(); <-- this will get dates
+
+                // results.daily.forEach(function(day){
+                //     var date = (new Date(day.dt * 1000)).toDateString();
+                //     console.log(date)//<-- this will get dates
+                // })
+
                 for (var i = 1; i <= 5; i++) {
+                    //dates
+                    var date = new Date();
+                    var today = new Date(date);
+                    var dateToday = today.setDate(today.getDate() + 1)
+                    $("h1").html(dateToday)
+
                     var day = results.daily[i].temp.day.toFixed(2)
                     var eve = results.daily[i].temp.eve.toFixed(2)
                     $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
