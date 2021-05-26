@@ -5,20 +5,21 @@
     <title>Weather Map Project</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
-    <!--        <style>-->
-    <!--            /*adding styling*/-->
-    <!--            body {-->
-    <!--                margin: 0;-->
-    <!--                background: black;-->
-    <!--            }-->
-
-    <!--            div.card {-->
-    <!--                width: 19%;-->
-    <!--                height: 20em;-->
-    <!--                background: white;-->
-    <!--            }-->
-
-    <!--        </style>-->
+            <style>
+                /*adding styling*/
+                body {
+                    margin: 0;
+                }
+                div.cards {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    margin: 2em;
+                }
+                div > div{
+                    border: solid 1px black;
+                }
+            </style>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
 <input id="submit" type="submit">
 
 <!--append results to days-->
-<div>
+<div class="cards">
     <div>
         <header class="day1"></header>
         <p class="temp1"></p>
@@ -48,7 +49,7 @@
         </div>
     </div>
     <div>
-        <header class="day2">Tuesday</header>
+        <header class="day2"></header>
         <p class="temp2"></p>
         <div class="weather">
             <p>
@@ -66,7 +67,7 @@
         </div>
     </div>
     <div>
-        <header class="day3">Wednesday</header>
+        <header class="day3"></header>
         <p class="temp3"></p>
         <div class="weather">
             <p>
@@ -84,7 +85,7 @@
         </div>
     </div>
     <div>
-        <header class="day4">Thursday</header>
+        <header class="day4"></header>
         <p class="temp4"></p>
         <div class="weather">
             <p>
@@ -102,7 +103,7 @@
         </div>
     </div>
     <div>
-        <header class="day5">Friday</header>
+        <header class="day5"></header>
         <p class="temp5"></p>
         <div class="weather">
             <p>
@@ -162,12 +163,11 @@
                 //     var date = (new Date(day.dt * 1000)).toDateString();
                 //     console.log(date)//<-- this will get dates
                 // })
-                function printInfo(){
                     for (var i = 1; i <= 5; i++) {
                         //dates
-                        var date = new Date();
-                        date.setDate(date.getDate() + i)
-                        var dd = String(date.getDate()).padStart(2, '0');
+                        var date = new Date(); //generates date object
+                        date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
+                        var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
                         var mm = String(date.getMonth()).padStart(2, '0');
                         $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
 
@@ -179,10 +179,7 @@
                         $(".humidity" + i).html(`${results.daily[i].humidity}%`)
                         $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
                         $(".pressure" + i).html(`${results.daily[i].pressure}`)
-                        //********FINISHED GATHERING WEATHER INFO, NOW I NEED TO TURN IT INTO A FUNCTION TO THAT MARKER CAN ALSO CALL ON IT WITHOUT ME RETYPING EVERYTHING**********
                     }
-                }
-                printInfo()
 
                 //generate draggable marker
                 var map = new mapboxgl.Map({
@@ -205,10 +202,29 @@
                                     appid: weathermapToken,
                                     lat: results[1],
                                     lon: results[0],
+                                    daily: results[4],
                                     units: "imperial",
                                     exclude: "current,minutely,hourly,alerts"
                                 }).done(function (results) {
                                     console.log(results);
+                                    for (var i = 1; i <= 5; i++) {
+                                        //dates
+                                        var date = new Date(); //generates date object
+                                        date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
+                                        var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
+                                        var mm = String(date.getMonth()).padStart(2, '0');
+                                        $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
+
+                                        var day = results.daily[i].temp.day.toFixed(2)
+                                        var eve = results.daily[i].temp.eve.toFixed(2)
+                                        $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
+                                        //add humidity, wind and pressure
+                                        $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
+                                        $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                                        $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                                        $(".pressure" + i).html(`${results.daily[i].pressure}`)
+                                        //somethings wrong, its not updating the cards
+                                    }
                                 });
                             });
                         });
