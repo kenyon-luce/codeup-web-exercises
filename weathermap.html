@@ -30,7 +30,7 @@
 <!--append results to days-->
 <div>
     <div>
-        <h1 class="day1">Monday</h1>
+        <header class="day1"></header>
         <p class="temp1"></p>
         <div class="weather">
             <p>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div>
-        <h1 class="day2">Tuesday</h1>
+        <header class="day2">Tuesday</header>
         <p class="temp2"></p>
         <div class="weather">
             <p>
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div>
-        <h1 class="day3">Wednesday</h1>
+        <header class="day3">Wednesday</header>
         <p class="temp3"></p>
         <div class="weather">
             <p>
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div>
-        <h1 class="day4">Thursday</h1>
+        <header class="day4">Thursday</header>
         <p class="temp4"></p>
         <div class="weather">
             <p>
@@ -102,7 +102,7 @@
         </div>
     </div>
     <div>
-        <h1 class="day5">Friday</h1>
+        <header class="day5">Friday</header>
         <p class="temp5"></p>
         <div class="weather">
             <p>
@@ -162,23 +162,28 @@
                 //     var date = (new Date(day.dt * 1000)).toDateString();
                 //     console.log(date)//<-- this will get dates
                 // })
+                function printInfo(){
+                    for (var i = 1; i <= 5; i++) {
+                        //dates
+                        var date = new Date();
+                        date.setDate(date.getDate() + i)
+                        var dd = String(date.getDate()).padStart(2, '0');
+                        var mm = String(date.getMonth()).padStart(2, '0');
+                        $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
 
-                for (var i = 1; i <= 5; i++) {
-                    //dates
-                    var date = new Date();
-                    date.setDate(date.getDate() + i)
-                    $(".day" + i).html(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`)
-
-                    var day = results.daily[i].temp.day.toFixed(2)
-                    var eve = results.daily[i].temp.eve.toFixed(2)
-                    $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-                    //add humidity, wind and pressure
-                    $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
-                    $(".humidity" + i).html(`${results.daily[i].humidity}%`)
-                    $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
-                    $(".pressure" + i).html(`${results.daily[i].pressure}`)
-                    //********FINISHED GATHERING WEATHER INFO, NOW I NEED TO TURN IT INTO A FUNCTION TO THAT MARKER CAN ALSO CALL ON IT WITHOUT ME RETYPING EVERYTHING**********
+                        var day = results.daily[i].temp.day.toFixed(2)
+                        var eve = results.daily[i].temp.eve.toFixed(2)
+                        $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
+                        //add humidity, wind and pressure
+                        $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
+                        $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                        $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                        $(".pressure" + i).html(`${results.daily[i].pressure}`)
+                        //********FINISHED GATHERING WEATHER INFO, NOW I NEED TO TURN IT INTO A FUNCTION TO THAT MARKER CAN ALSO CALL ON IT WITHOUT ME RETYPING EVERYTHING**********
+                    }
                 }
+                printInfo()
+
                 //generate draggable marker
                 var map = new mapboxgl.Map({
                     container: "map",
