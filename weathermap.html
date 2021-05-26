@@ -165,7 +165,7 @@
             }).done(function (results) {
                 console.log(results)
                     for (var i = 1; i <= 5; i++) {
-                        //dates
+                        //DATES
                         var date = new Date(); //generates date object
                         date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
                         var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
@@ -175,14 +175,13 @@
                         var day = results.daily[i].temp.day.toFixed(2)
                         var eve = results.daily[i].temp.eve.toFixed(2)
                         $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-                        //add humidity, wind and pressure
                         $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
                         $(".humidity" + i).html(`${results.daily[i].humidity}%`)
                         $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
                         $(".pressure" + i).html(`${results.daily[i].pressure}`)
                     }
 
-                //generate draggable marker
+                //MARKER
                 var map = new mapboxgl.Map({
                     container: "map",
                     style: "mapbox://styles/mapbox/dark-v10",
@@ -193,7 +192,7 @@
                     .setLngLat(results)
                     .addTo(map)
                     .setDraggable(true)
-                    //update forecast for new marker location
+                    //UPDATE FORECAST
                     .on("dragend", function () {
                         console.log(marker.getLngLat())
                         reverseGeocode(marker.getLngLat(), mapboxToken).then(function (results) {
@@ -209,7 +208,7 @@
                                 }).done(function (results) {
                                     console.log(results);
                                     for (var i = 1; i <= 5; i++) {
-                                        //dates
+                                        //DATES (repeated from before, need to refactor into function)
                                         var date = new Date(); //generates date object
                                         date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
                                         var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
@@ -219,18 +218,15 @@
                                         var day = results.daily[i].temp.day.toFixed(2)
                                         var eve = results.daily[i].temp.eve.toFixed(2)
                                         $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-                                        //add humidity, wind and pressure
                                         $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
                                         $(".humidity" + i).html(`${results.daily[i].humidity}%`)
                                         $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
                                         $(".pressure" + i).html(`${results.daily[i].pressure}`)
-                                        //somethings wrong, its not updating the cards
                                     }
                                 });
                             });
                         });
                     });
-                // marker.remove();
             });
         });
     }
