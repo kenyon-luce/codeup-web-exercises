@@ -130,6 +130,12 @@
 <script src="js/mapbox-geocode-utils.js"></script>
 <script>
     "use strict";
+    // *******CHECKLIST*******
+    //[ ] set default location w/ draggable marker
+    //[X] get weather info from location
+    //[ ] update info and center based on draggable marker location
+    //[ ] search feature updates draggable marker location
+    //[X] display updated info in html
 
     //add starting map
     mapboxgl.accessToken = mapboxToken;
@@ -158,11 +164,6 @@
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
                 console.log(results)
-
-                // results.daily.forEach(function(day){
-                //     var date = (new Date(day.dt * 1000)).toDateString();
-                //     console.log(date)//<-- this will get dates
-                // })
                     for (var i = 1; i <= 5; i++) {
                         //dates
                         var date = new Date(); //generates date object
