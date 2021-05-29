@@ -17,10 +17,11 @@
 <script>
     "use strict";
 
-    $("button").click(function(e){
-            console.log($(e.target).val())
+    // var buttonValue = document.getElementsByTagName("button")
+    $("button").on('click',(function(e){
+            console.log($(e.target))
         }
-    )
+    ))
 </script>
 </body>
 </html>
