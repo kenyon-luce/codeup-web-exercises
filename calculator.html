@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--<form action="calculator.html" method="POST">-->
-    <input type="text" id="number"><input id= type="text" id="operator"><input type="text" id="results"> <br>
+    <input type="text" id="number1" class="results"><input id= type="text" id="operator"><input type="text" id="number2"> <br>
     <button>1</button> <button>2</button> <button>3</button> <button class="operator">+</button> <br>
     <button>4</button> <button>5</button> <button>6</button> <button class="operator">-</button> <br>
     <button>7</button> <button>8</button> <button>9</button> <button class="operator">*</button> <br>
@@ -20,13 +20,23 @@
     $("input").attr('readonly', true);
 
 
+    var number1 = "";
+    var number2 = "";
 
     $("button").on('click',(function(){
             var value = $(this).html()
             // console.log(value)
-            if(!isNaN(parseInt(this.html))){
-                console.log($(this).html() + " is a number")
-                $("input.number").val(this)
+
+            if(!isNaN(parseInt(value))){
+                // console.log(value + " is a number")
+                number1+=value
+                // console.log(number1)
+                $("input#number1").attr('value', number1)
+            }
+
+            if($('button').attr('class', 'operator')){
+                console.log(value);
+                $("input#operator").attr('value', value)
             }
         }
     ))
