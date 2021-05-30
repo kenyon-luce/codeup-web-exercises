@@ -7,19 +7,27 @@
 </head>
 <body>
 <!--<form action="calculator.html" method="POST">-->
-<!--    <input type="text"><input id= type="text"><input type="text"> <br>-->
-    <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
-    <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
-    <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
-    <button id="clear">C</button> <button>0</button> <button>/</button>
+    <input type="text" id="number"><input id= type="text" id="operator"><input type="text" id="results"> <br>
+    <button>1</button> <button>2</button> <button>3</button> <button class="operator">+</button> <br>
+    <button>4</button> <button>5</button> <button>6</button> <button class="operator">-</button> <br>
+    <button>7</button> <button>8</button> <button>9</button> <button class="operator">*</button> <br>
+    <button class="action">C</button> <button>0</button> <button class="operator">/</button> <button class="action">=</button>
 <!--    <input type="submit" value="=">-->
 <!--</form>-->
 <script>
     "use strict";
 
-    // var buttonValue = document.getElementsByTagName("button")
-    $("button").on('click',(function(e){
-            console.log($(e.target))
+    $("input").attr('readonly', true);
+
+
+
+    $("button").on('click',(function(){
+            var value = $(this).html()
+            // console.log(value)
+            if(!isNaN(parseInt(this.html))){
+                console.log($(this).html() + " is a number")
+                $("input.number").val(this)
+            }
         }
     ))
 </script>
