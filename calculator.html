@@ -32,9 +32,17 @@
                 number1+=value
                 // console.log(number1)
                 $("#number1").attr('value', number1)
-            } else {
-                console.log(value)
+            }
+
+            if(isNaN(value)){
+                // console.log(value)
                 $("#operator").attr('value', value)
+                // console.log($('#operator').val())
+            }
+
+            if($('#operator').val()){
+                number2+=value
+                $("#number2").attr('value', number2)
             }
         }
     ))
