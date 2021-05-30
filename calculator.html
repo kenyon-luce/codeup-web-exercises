@@ -7,11 +7,11 @@
 </head>
 <body>
 <!--<form action="calculator.html" method="POST">-->
-    <input type="text" id="number1" class="results"><input id= type="text" id="operator"><input type="text" id="number2"> <br>
-    <button>1</button> <button>2</button> <button>3</button> <button class="operator">+</button> <br>
-    <button>4</button> <button>5</button> <button>6</button> <button class="operator">-</button> <br>
-    <button>7</button> <button>8</button> <button>9</button> <button class="operator">*</button> <br>
-    <button class="action">C</button> <button>0</button> <button class="operator">/</button> <button class="action">=</button>
+    <input type="text" id="number1" class="results"><input type="text" id="operator"><input type="text" id="number2"> <br>
+    <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
+    <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
+    <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
+    <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
 <!--    <input type="submit" value="=">-->
 <!--</form>-->
 <script>
@@ -31,12 +31,10 @@
                 // console.log(value + " is a number")
                 number1+=value
                 // console.log(number1)
-                $("input#number1").attr('value', number1)
-            }
-
-            if($('button').attr('class', 'operator')){
-                console.log(value);
-                $("input#operator").attr('value', value)
+                $("#number1").attr('value', number1)
+            } else {
+                console.log(value)
+                $("#operator").attr('value', value)
             }
         }
     ))
