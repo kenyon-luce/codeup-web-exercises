@@ -16,44 +16,39 @@
 <!--</form>-->
 <script>
     "use strict";
-
     $("input").attr('readonly', true);
-
-
 
     var num1 = ""; //these need to be outside so we can keep adding to it depending how big of a number we want
     var num2 = "";
     $("button").on('click',(function(){
-
+            //grab button values
             var value = $(this).html()
             // console.log(value)
 
+            //add to first box while the operator box is empty
             if($("#operator").val() === ""){
                 if(!isNaN(Number(value))){
-                    // console.log(value + " is a number")
                     num1+=value
-                    // console.log(number1)
                     $("#num1").attr('value', num1)
                 }
-            } else {
+            } else { //add to second box when an operator is selected (box no longer empty)
                 if(!isNaN(Number(value))){
-                    // console.log(value + " is a number")
                     num2+=value
-                    // console.log(number1)
                     $("#num2").attr('value', num2)
                 }
             }
 
-            if(isNaN(value) && value !== "=" && value !== "C"){ //should refactor later
+            if(isNaN(value) && value !== "=" && value !== "C" && $("#num1").val() !== ""){ //should refactor later, but this gets the operator values (only) and puts it in the middle box. It also won't fill if there is nothing in box 1
                 // console.log(value)
                 $("#operator").attr('value', value)
                 // console.log($('#operator').val())
             }
 
-            if(value === "="){
+            //actions
+            if(value === "="){ //when "=" is clicked, it will change num1 based on the operator, then clear num2
                 switch($("#operator").val()){
                     case "+":
-                        num1 = Number(number1) + Number(number2).log
+                        num1 = Number(num1) + Number(num2)
                         console.log("add")
                         break;
                     case "-":
@@ -72,7 +67,9 @@
                 $("#num1").attr('value', num1)
                 num2 = ""
                 $("#num2").attr('value', "")
-            } else if (value === "C"){
+            }
+
+            if (value === "C"){
                 num1 = ""; //empties out variable
                 $("#num1").attr('value', "")
                 num2 = ""
@@ -80,6 +77,9 @@
                 $("#operator").attr('value', "")
             }
         }
+
+        //error: can click operator before filling in box 1, thus locking it even though its empty
+        //^^update: fixed, just added another condition
     ))
 </script>
 </body>
