@@ -44,6 +44,22 @@
                 number2+=value
                 $("#number2").attr('value', number2)
             }
+
+            var result;
+            switch(!isNaN(parseInt(value))){
+                case "+":
+                    result = Number(number1) + Number(number2)
+                    break;
+                    case "-":
+                    result = Number(number1) - Number(number2)
+                    break;
+                    case "*":
+                    result = Number(number1) * Number(number2)
+                    break;
+                    case "/":
+                    result = Number(number1) / Number(number2)
+                    break;
+            }
         }
     ))
 </script>
