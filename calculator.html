@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--<form action="calculator.html" method="POST">-->
-    <input type="text" id="number1" class="results"><input type="text" id="operator"><input type="text" id="number2"> <br>
+    <input type="text" id="num1" class="results"><input type="text" id="operator"><input type="text" id="num2"> <br>
     <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
     <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
     <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
@@ -20,8 +20,8 @@
     $("input").attr('readonly', true);
 
 
-    var number1 = "";
-    var number2 = "";
+    var num1 = "";
+    var num2 = "";
 
     $("button").on('click',(function(){
             var value = $(this).html()
@@ -29,37 +29,40 @@
 
             if(!isNaN(parseInt(value))){
                 // console.log(value + " is a number")
-                number1+=value
+                num1+=value
                 // console.log(number1)
-                $("#number1").attr('value', number1)
+                $("#num1").attr('value', num1)
             }
 
-            if(isNaN(value)){
+            if(isNaN(value) && value !== "=" && value !== "C"){ //should refactor later
                 // console.log(value)
                 $("#operator").attr('value', value)
                 // console.log($('#operator').val())
             }
 
-            if($('#operator').val() === ""){
-                number2+=value
-                $("#number2").attr('value', number2)
+            var result;
+            if(value === "="){
+                switch($("#operator").val()){
+                    case "+":
+                        // result = Number(number1) + Number(number2).log
+                        console.log("add")
+                        break;
+                    case "-":
+                        // result = Number(num1) - Number(num2)
+                        console.log("subtract")
+                        break;
+                    case "*":
+                        // result = Number(num1) * Number(num2)
+                        console.log("multiply")
+                        break;
+                    case "/":
+                        // result = Number(num1) / Number(num2)
+                        console.log("divide")
+                        break;
+                }
+                $("#num1").attr('value', result)
             }
 
-            var result;
-            switch(!isNaN(parseInt(value))){
-                case "+":
-                    result = Number(number1) + Number(number2)
-                    break;
-                    case "-":
-                    result = Number(number1) - Number(number2)
-                    break;
-                    case "*":
-                    result = Number(number1) * Number(number2)
-                    break;
-                    case "/":
-                    result = Number(number1) / Number(number2)
-                    break;
-            }
         }
     ))
 </script>
