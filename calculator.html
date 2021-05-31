@@ -27,7 +27,7 @@
             var value = $(this).html()
             // console.log(value)
 
-            if(!isNaN(parseInt(value))){
+            if(!isNaN(Number(value))){
                 // console.log(value + " is a number")
                 num1+=value
                 // console.log(number1)
@@ -60,9 +60,13 @@
                         console.log("divide")
                         break;
                 }
-                $("#num1").attr('value', result)
+                $("#num1").attr('value', num1)
+            } else if (value === "C"){
+                num1 = ""; //empties out variable
+                $("#num1").attr('value', "")
             }
-
+            num2 = ""
+            $("#num2").attr('value', "")
         }
     ))
 </script>
