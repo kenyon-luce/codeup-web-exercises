@@ -4,14 +4,32 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        input {
+            width: 5em;
+        }
+        #operator {
+            width: 2em;
+        }
+        .buttons{
+            width: 11.5em;
+        }
+        button{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
 </head>
 <body>
 <!--<form action="calculator.html" method="POST">-->
     <input type="text" id="num1" class="results"><input type="text" id="operator"><input type="text" id="num2"> <br>
-    <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
-    <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
-    <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
-    <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
+    <div class="buttons">
+        <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
+        <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
+        <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
+        <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
+    </div>
+
 <!--    <input type="submit" value="=">-->
 <!--</form>-->
 <script>
