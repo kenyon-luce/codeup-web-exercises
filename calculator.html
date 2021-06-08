@@ -8,10 +8,12 @@
         input {
             width: 5em;
         }
+
         #operator {
             width: 2em;
         }
-        .calculator{
+
+        .calculator {
             background: #ff8a58;
             width: 12em;
             height: 12em;
@@ -21,10 +23,12 @@
             flex-wrap: wrap;
             border-radius: 10px;
         }
-        #draggable{
+
+        #draggable {
             position: absolute;
         }
-        .buttons{
+
+        .buttons {
             width: 11.5em;
             /*justify-content: center;*/
             display: flex;
@@ -32,11 +36,13 @@
             justify-content: center;
             background: #c1c1c1;
         }
-        button{
+
+        button {
             width: 3em;
             margin: 3px;
         }
-        button:hover{
+
+        button:hover {
             cursor: pointer;
         }
     </style>
@@ -46,10 +52,25 @@
     <div class="calculator">
         <input type="text" id="num1" class="results"><input type="text" id="operator"><input type="text" id="num2"> <br>
         <div class="buttons">
-            <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
-            <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
-            <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
-            <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <br>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <br>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <br>
+            <button class="action">C</button>
+            <button>0</button>
+            <button>/</button>
+            <button class="action">=</button>
         </div>
     </div>
 </div>
@@ -65,33 +86,33 @@
 
     var num1 = ""; //these need to be outside so we can keep adding to it depending how big of a number we want
     var num2 = "";
-    $("button").on('click',(function(){
+    $("button").on('click', (function () {
             //grab button values
             var value = $(this).html()
             // console.log(value)
 
             //add to first box while the operator box is empty
-            if($("#operator").val() === ""){
-                if(!isNaN(Number(value))){
-                    num1+=value
+            if ($("#operator").val() === "") {
+                if (!isNaN(Number(value))) {
+                    num1 += value
                     $("#num1").attr('value', num1)
                 }
             } else { //add to second box when an operator is selected (box no longer empty)
-                if(!isNaN(Number(value))){
-                    num2+=value
+                if (!isNaN(Number(value))) {
+                    num2 += value
                     $("#num2").attr('value', num2)
                 }
             }
 
-            if(isNaN(value) && value !== "=" && value !== "C" && $("#num1").val() !== ""){ //should refactor later, but this gets the operator values (only) and puts it in the middle box. It also won't fill if there is nothing in box 1
+            if (isNaN(value) && value !== "=" && value !== "C" && $("#num1").val() !== "") { //should refactor later, but this gets the operator values (only) and puts it in the middle box. It also won't fill if there is nothing in box 1
                 // console.log(value)
                 $("#operator").attr('value', value)
                 // console.log($('#operator').val())
             }
 
             //actions
-            if(value === "="){ //when "=" is clicked, it will change num1 based on the operator, then clear num2
-                switch($("#operator").val()){
+            if (value === "=") { //when "=" is clicked, it will change num1 based on the operator, then clear num2
+                switch ($("#operator").val()) {
                     case "+":
                         num1 = Number(num1) + Number(num2)
                         console.log("add")
@@ -114,7 +135,7 @@
                 $("#num2").attr('value', "")
             }
 
-            if (value === "C"){
+            if (value === "C") {
                 num1 = ""; //empties out variable
                 $("#num1").attr('value', "")
                 num2 = ""
@@ -127,7 +148,36 @@
         //^^update: fixed, just added another condition
     ))
 
+    //https://www.sanwebe.com/2014/10/draggable-element-with-jquery-no-jquery-ui
+    var draggable = $("#draggable"); //element to be dragged
 
+    draggable.on('mousedown', function (e) {
+        var dr = $(this).addClass("drag").css("cursor", "move"); //adds drag class that toggles while clicked on
+        //outer height and width refer to the size of the object in question
+        var height = dr.outerHeight(); //192
+        var width = dr.outerWidth(); //192
+        // console.log(height);
+        // console.log(width);
+
+        var ypos = dr.offset().top + height - e.pageY
+        var xpos = dr.offset().left + width - e.pageX;
+        // console.log(xpos);
+        // console.log(ypos);
+
+        //page x and y?
+
+        $(document.body).on('mousemove', function (e) {
+            var itop = e.pageY + ypos - height;
+            var ileft = e.pageX + xpos - width;
+            // console.log(itop);
+            // console.log(ileft);
+            if (dr.hasClass("drag")) {
+                dr.offset({top: itop, left: ileft});
+            }
+        }).on('mouseup', function (e) {
+            dr.removeClass("drag");
+        });
+    });
 
 </script>
 </body>
