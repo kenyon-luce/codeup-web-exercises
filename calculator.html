@@ -33,11 +33,11 @@
             background: #c1c1c1;
         }
         button{
-            /*display: flex;*/
-            /*align-items: flex-start;*/ /*flexbox only affects child components*/
-            /*flex-wrap: wrap;*/
             width: 3em;
             margin: 3px;
+        }
+        button:hover{
+            cursor: pointer;
         }
     </style>
 </head>
@@ -126,6 +126,9 @@
         //error: can click operator before filling in box 1, thus locking it even though its empty
         //^^update: fixed, just added another condition
     ))
+
+
+
 </script>
 </body>
 </html>
