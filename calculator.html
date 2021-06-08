@@ -5,11 +5,6 @@
     <title>Calculator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
         input {
             width: 5em;
         }
@@ -25,6 +20,9 @@
             justify-content: center;
             flex-wrap: wrap;
             border-radius: 10px;
+        }
+        #draggable{
+            position: absolute;
         }
         .buttons{
             width: 11.5em;
@@ -44,15 +42,18 @@
     </style>
 </head>
 <body>
-<div class="calculator">
-    <input type="text" id="num1" class="results"><input type="text" id="operator"><input type="text" id="num2"> <br>
-    <div class="buttons">
-        <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
-        <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
-        <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
-        <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
+<div id="draggable">
+    <div class="calculator">
+        <input type="text" id="num1" class="results"><input type="text" id="operator"><input type="text" id="num2"> <br>
+        <div class="buttons">
+            <button>1</button> <button>2</button> <button>3</button> <button>+</button> <br>
+            <button>4</button> <button>5</button> <button>6</button> <button>-</button> <br>
+            <button>7</button> <button>8</button> <button>9</button> <button>*</button> <br>
+            <button class="action">C</button> <button>0</button> <button>/</button> <button class="action">=</button>
+        </div>
     </div>
 </div>
+
 <!--<form action="calculator.html" method="POST">-->
 
 
