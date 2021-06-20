@@ -5,30 +5,32 @@
     <title>Weather Map Project</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<!--    <style>-->
-<!--                /*adding styling*/-->
-<!--                body {-->
-<!--                    margin: 0;-->
-<!--                }-->
-<!--                div.cards {-->
-<!--                    display: flex;-->
-<!--                    align-items: flex-start;-->
-<!--                    justify-content: space-between;-->
-<!--                    margin: 2em;-->
-<!--                }-->
-<!--                div > div{-->
-<!--                    border: solid 1px black;-->
-<!--                }-->
-<!--            </style>-->
+    <!--    <style>-->
+    <!--                /*adding styling*/-->
+    <!--                body {-->
+    <!--                    margin: 0;-->
+    <!--                }-->
+    <!--                div.cards {-->
+    <!--                    display: flex;-->
+    <!--                    align-items: flex-start;-->
+    <!--                    justify-content: space-between;-->
+    <!--                    margin: 2em;-->
+    <!--                }-->
+    <!--                div > div{-->
+    <!--                    border: solid 1px black;-->
+    <!--                }-->
+    <!--            </style>-->
 </head>
 <body>
 <input id="search" type="text" placeholder="search">
 <input id="submit" type="submit">
 
 <!--append results to days-->
-<div class="row">
+
+<div class="col d-flex justify-content-center row">
     <div class="col-sm-2">
         <div class="card">
             <div class="card-header text-center">
@@ -38,94 +40,139 @@
             <div class="card-body">
                 <div class="card-text weather">
                     <p>
-                        Description: <nobr class="desc1"></nobr> <!--like a <p> tag but it doesn't break-->
+                        Description:
+                        <nobr class="desc1"></nobr> <!--like a <p> tag but it doesn't break-->
                     </p>
                     <p>
-                        Humidity: <nobr class="humidity1"></nobr>
+                        Humidity:
+                        <nobr class="humidity1"></nobr>
                     </p>
                     <p>
-                        Wind: <nobr class="wind1"></nobr>
+                        Wind:
+                        <nobr class="wind1"></nobr>
                     </p>
                     <p>
-                        Pressure: <nobr class="pressure1"></nobr>
+                        Pressure:
+                        <nobr class="pressure1"></nobr>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        <header class="day2"></header>
-        <p class="temp2"></p>
-        <div class="weather">
-            <p>
-                Description: <nobr class="desc2"></nobr> <!--like a <p> tag but it doesn't break-->
-            </p>
-            <p>
-                Humidity: <nobr class="humidity2"></nobr>
-            </p>
-            <p>
-                Wind: <nobr class="wind2"></nobr>
-            </p>
-            <p>
-                Pressure: <nobr class="pressure2"></nobr>
-            </p>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="day2"></h3>
+                <h6 class="temp2"></h6>
+            </div>
+            <div class="card-body">
+                <div class="card-text weather">
+                    <p>
+                        Description:
+                        <nobr class="desc2"></nobr> <!--like a <p> tag but it doesn't break-->
+                    </p>
+                    <p>
+                        Humidity:
+                        <nobr class="humidity2"></nobr>
+                    </p>
+                    <p>
+                        Wind:
+                        <nobr class="wind2"></nobr>
+                    </p>
+                    <p>
+                        Pressure:
+                        <nobr class="pressure2"></nobr>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <header class="day3"></header>
-        <p class="temp3"></p>
-        <div class="weather">
-            <p>
-                Description: <nobr class="desc3"></nobr> <!--like a <p> tag but it doesn't break-->
-            </p>
-            <p>
-                Humidity: <nobr class="humidity3"></nobr>
-            </p>
-            <p>
-                Wind: <nobr class="wind3"></nobr>
-            </p>
-            <p>
-                Pressure: <nobr class="pressure3"></nobr>
-            </p>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="day3"></h3>
+                <h6 class="temp3"></h6>
+            </div>
+            <div class="card-body">
+                <div class="card-text weather">
+                    <p>
+                        Description:
+                        <nobr class="desc3"></nobr> <!--like a <p> tag but it doesn't break-->
+                    </p>
+                    <p>
+                        Humidity:
+                        <nobr class="humidity3"></nobr>
+                    </p>
+                    <p>
+                        Wind:
+                        <nobr class="wind3"></nobr>
+                    </p>
+                    <p>
+                        Pressure:
+                        <nobr class="pressure3"></nobr>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <header class="day4"></header>
-        <p class="temp4"></p>
-        <div class="weather">
-            <p>
-                Description: <nobr class="desc4"></nobr> <!--like a <p> tag but it doesn't break-->
-            </p>
-            <p>
-                Humidity: <nobr class="humidity4"></nobr>
-            </p>
-            <p>
-                Wind: <nobr class="wind4"></nobr>
-            </p>
-            <p>
-                Pressure: <nobr class="pressure4"></nobr>
-            </p>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="day4"></h3>
+                <h6 class="temp4"></h6>
+            </div>
+            <div class="card-body">
+                <div class="card-text weather">
+                    <p>
+                        Description:
+                        <nobr class="desc4"></nobr> <!--like a <p> tag but it doesn't break-->
+                    </p>
+                    <p>
+                        Humidity:
+                        <nobr class="humidity4"></nobr>
+                    </p>
+                    <p>
+                        Wind:
+                        <nobr class="wind4"></nobr>
+                    </p>
+                    <p>
+                        Pressure:
+                        <nobr class="pressure4"></nobr>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <header class="day5"></header>
-        <p class="temp5"></p>
-        <div class="weather">
-            <p>
-                Description: <nobr class="desc5"></nobr> <!--like a <p> tag but it doesn't break-->
-            </p>
-            <p>
-                Humidity: <nobr class="humidity5"></nobr>
-            </p>
-            <p>
-                Wind: <nobr class="wind5"></nobr>
-            </p>
-            <p>
-                Pressure: <nobr class="pressure5"></nobr>
-            </p>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="day5"></h3>
+                <h6 class="temp5"></h6>
+            </div>
+            <div class="card-body">
+                <div class="card-text weather">
+                    <p>
+                        Description:
+                        <nobr class="desc5"></nobr> <!--like a <p> tag but it doesn't break-->
+                    </p>
+                    <p>
+                        Humidity:
+                        <nobr class="humidity5"></nobr>
+                    </p>
+                    <p>
+                        Wind:
+                        <nobr class="wind5"></nobr>
+                    </p>
+                    <p>
+                        Pressure:
+                        <nobr class="pressure5"></nobr>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 <div id="map" style='width: 100%; height: 450px'></div>
 
 <!--    linking javascript and jquery-->
@@ -176,7 +223,9 @@
                 $(".humidity" + i).html(`${results.daily[i].humidity}%`)
                 $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
                 $(".pressure" + i).html(`${results.daily[i].pressure}`)
-            }})})
+            }
+        })
+    })
 
     //input location
     function getForecast() {
@@ -194,22 +243,22 @@
                 exclude: "current,minutely,hourly,alerts"
             }).done(function (results) {
                 console.log(results)
-                    for (var i = 1; i <= 5; i++) {
-                        //DATES
-                        var date = new Date(); //generates date object
-                        date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
-                        var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
-                        var mm = String(date.getMonth()).padStart(2, '0');
-                        $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
+                for (var i = 1; i <= 5; i++) {
+                    //DATES
+                    var date = new Date(); //generates date object
+                    date.setDate(date.getDate() + i) //sets date for each of the 5 days (through iteration)
+                    var dd = String(date.getDate()).padStart(2, '0'); //pad adds a 0 if date is one digit
+                    var mm = String(date.getMonth()).padStart(2, '0');
+                    $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
 
-                        var day = results.daily[i].temp.day.toFixed(2)
-                        var eve = results.daily[i].temp.eve.toFixed(2)
-                        $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
-                        $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
-                        $(".humidity" + i).html(`${results.daily[i].humidity}%`)
-                        $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
-                        $(".pressure" + i).html(`${results.daily[i].pressure}`)
-                    }
+                    var day = results.daily[i].temp.day.toFixed(2)
+                    var eve = results.daily[i].temp.eve.toFixed(2)
+                    $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit, and we are rounding the temps to 2 decimal places (Fixed(2))
+                    $(".desc" + i).html(`${results.daily[i].weather[0].description}`)
+                    $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                    $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                    $(".pressure" + i).html(`${results.daily[i].pressure}`)
+                }
 
                 //MARKER
                 var map = new mapboxgl.Map({
