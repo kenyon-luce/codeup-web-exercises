@@ -9,20 +9,22 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--    <style>-->
-    <!--                /*adding styling*/-->
-    <!--                body {-->
-    <!--                    margin: 0;-->
-    <!--                }-->
-    <!--                div.cards {-->
-    <!--                    display: flex;-->
-    <!--                    align-items: flex-start;-->
-    <!--                    justify-content: space-between;-->
-    <!--                    margin: 2em;-->
-    <!--                }-->
-    <!--                div > div{-->
-    <!--                    border: solid 1px black;-->
-    <!--                }-->
-    <!--            </style>-->
+    <!--        /*!*adding styling*!*/-->
+    <!--        /*body {*/-->
+    <!--        /*    margin: 0;*/-->
+    <!--        /*}*/-->
+
+    <!--        /*div.cards {*/-->
+    <!--        /*    display: flex;*/-->
+    <!--        /*    align-items: flex-start;*/-->
+    <!--        /*    justify-content: space-between;*/-->
+    <!--        /*    margin: 2em;*/-->
+    <!--        /*}*/-->
+
+    <!--        /*div > div {*/-->
+    <!--        /*    border: solid 1px black;*/-->
+    <!--        /*}*/-->
+    <!--    </style>-->
 </head>
 <body>
 <input id="search" type="text" placeholder="search">
@@ -30,8 +32,8 @@
 
 <!--append results to days-->
 
-<div class="col d-flex justify-content-center row">
-    <div class="col-sm-2">
+<div class="container-fluid">
+    <div class="col d-flex justify-content-center justify-content-around row">
         <div class="card">
             <div class="card-header text-center">
                 <h3 class="day1"></h3>
@@ -58,64 +60,62 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-header text-center">
-                <h3 class="day2"></h3>
-                <h6 class="temp2"></h6>
-            </div>
-            <div class="card-body">
-                <div class="card-text weather">
-                    <p>
-                        Description:
-                        <nobr class="desc2"></nobr> <!--like a <p> tag but it doesn't break-->
-                    </p>
-                    <p>
-                        Humidity:
-                        <nobr class="humidity2"></nobr>
-                    </p>
-                    <p>
-                        Wind:
-                        <nobr class="wind2"></nobr>
-                    </p>
-                    <p>
-                        Pressure:
-                        <nobr class="pressure2"></nobr>
-                    </p>
+        <div>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="day2"></h3>
+                    <h6 class="temp2"></h6>
+                </div>
+                <div class="card-body">
+                    <div class="card-text weather">
+                        <p>
+                            Description:
+                            <nobr class="desc2"></nobr> <!--like a <p> tag but it doesn't break-->
+                        </p>
+                        <p>
+                            Humidity:
+                            <nobr class="humidity2"></nobr>
+                        </p>
+                        <p>
+                            Wind:
+                            <nobr class="wind2"></nobr>
+                        </p>
+                        <p>
+                            Pressure:
+                            <nobr class="pressure2"></nobr>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-header text-center">
-                <h3 class="day3"></h3>
-                <h6 class="temp3"></h6>
-            </div>
-            <div class="card-body">
-                <div class="card-text weather">
-                    <p>
-                        Description:
-                        <nobr class="desc3"></nobr> <!--like a <p> tag but it doesn't break-->
-                    </p>
-                    <p>
-                        Humidity:
-                        <nobr class="humidity3"></nobr>
-                    </p>
-                    <p>
-                        Wind:
-                        <nobr class="wind3"></nobr>
-                    </p>
-                    <p>
-                        Pressure:
-                        <nobr class="pressure3"></nobr>
-                    </p>
+        <div>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="day3"></h3>
+                    <h6 class="temp3"></h6>
+                </div>
+                <div class="card-body">
+                    <div class="card-text weather">
+                        <p>
+                            Description:
+                            <nobr class="desc3"></nobr> <!--like a <p> tag but it doesn't break-->
+                        </p>
+                        <p>
+                            Humidity:
+                            <nobr class="humidity3"></nobr>
+                        </p>
+                        <p>
+                            Wind:
+                            <nobr class="wind3"></nobr>
+                        </p>
+                        <p>
+                            Pressure:
+                            <nobr class="pressure3"></nobr>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-2">
         <div class="card">
             <div class="card-header text-center">
                 <h3 class="day4"></h3>
@@ -142,31 +142,31 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-header text-center">
-                <h3 class="day5"></h3>
-                <h6 class="temp5"></h6>
-            </div>
-            <div class="card-body">
-                <div class="card-text weather">
-                    <p>
-                        Description:
-                        <nobr class="desc5"></nobr> <!--like a <p> tag but it doesn't break-->
-                    </p>
-                    <p>
-                        Humidity:
-                        <nobr class="humidity5"></nobr>
-                    </p>
-                    <p>
-                        Wind:
-                        <nobr class="wind5"></nobr>
-                    </p>
-                    <p>
-                        Pressure:
-                        <nobr class="pressure5"></nobr>
-                    </p>
+        <div>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="day5"></h3>
+                    <h6 class="temp5"></h6>
+                </div>
+                <div class="card-body">
+                    <div class="card-text weather">
+                        <p>
+                            Description:
+                            <nobr class="desc5"></nobr> <!--like a <p> tag but it doesn't break-->
+                        </p>
+                        <p>
+                            Humidity:
+                            <nobr class="humidity5"></nobr>
+                        </p>
+                        <p>
+                            Wind:
+                            <nobr class="wind5"></nobr>
+                        </p>
+                        <p>
+                            Pressure:
+                            <nobr class="pressure5"></nobr>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
