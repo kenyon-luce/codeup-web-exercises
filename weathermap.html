@@ -5,44 +5,48 @@
     <title>Weather Map Project</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
-            <style>
-                /*adding styling*/
-                body {
-                    margin: 0;
-                }
-                div.cards {
-                    display: flex;
-                    align-items: flex-start;
-                    justify-content: space-between;
-                    margin: 2em;
-                }
-                div > div{
-                    border: solid 1px black;
-                }
-            </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!--    <style>-->
+<!--                /*adding styling*/-->
+<!--                body {-->
+<!--                    margin: 0;-->
+<!--                }-->
+<!--                div.cards {-->
+<!--                    display: flex;-->
+<!--                    align-items: flex-start;-->
+<!--                    justify-content: space-between;-->
+<!--                    margin: 2em;-->
+<!--                }-->
+<!--                div > div{-->
+<!--                    border: solid 1px black;-->
+<!--                }-->
+<!--            </style>-->
 </head>
 <body>
 <input id="search" type="text" placeholder="search">
 <input id="submit" type="submit">
 
 <!--append results to days-->
-<div class="cards">
-    <div>
-        <header class="day1"></header>
-        <p class="temp1"></p>
-        <div class="weather">
-            <p>
-                Description: <nobr class="desc1"></nobr> <!--like a <p> tag but it doesn't break-->
-            </p>
-            <p>
-                Humidity: <nobr class="humidity1"></nobr>
-            </p>
-            <p>
-                Wind: <nobr class="wind1"></nobr>
-            </p>
-            <p>
-                Pressure: <nobr class="pressure1"></nobr>
-            </p>
+<div class="cards row">
+    <div class="col-sm-2">
+        <div class="card">
+            <header class="day1"></header>
+            <p class="temp1"></p>
+            <div class="weather">
+                <p>
+                    Description: <nobr class="desc1"></nobr> <!--like a <p> tag but it doesn't break-->
+                </p>
+                <p>
+                    Humidity: <nobr class="humidity1"></nobr>
+                </p>
+                <p>
+                    Wind: <nobr class="wind1"></nobr>
+                </p>
+                <p>
+                    Pressure: <nobr class="pressure1"></nobr>
+                </p>
+            </div>
         </div>
     </div>
     <div>
