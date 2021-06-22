@@ -19,9 +19,10 @@
       function encode(pattern){
         var iteratePattern = pattern.split("");
 
-        for(var i = 1; i <= pattern.length; i++){
-          var h = i - 1
-          console.log(i + " and " + h);
+        for(var i = 1; i < pattern.length; i++){
+          var h = i - 1 //looks at previous index from the increment to compare, and since i starts at 1, h accounts for the 0th index
+          // console.log(i + " and " + h);
+          console.log(iteratePattern[i] + " and " + iteratePattern[h])
           if(iteratePattern[i] === iteratePattern[h]){
             console.log("matching")
           } else {
@@ -30,6 +31,8 @@
           // if(iteratePattern[i] === iteratePattern )
         }
       }
+      encode("phhnhhy");
+
     </script>
   </body>
 </html>
