@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Run Length Encoder</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p></p>
+
+    <form action=""></form>
+    <label for="input">Input:</label>
+    <input type="text" id="input">
+    <input type="submit">
+    <p>Output:</p>
+
+<!--    ENCODER FUNCTION-->
+    <script>
+      function encode(pattern){
+        var iteratePattern = pattern.split("");
+
+        for(var i = 1; i <= pattern.length; i++){
+          var h = i - 1
+          console.log(i + " and " + h);
+          if(iteratePattern[i] === iteratePattern[h]){
+            console.log("matching")
+          } else {
+            console.log("not matching")
+          }
+          // if(iteratePattern[i] === iteratePattern )
+        }
+      }
+    </script>
+  </body>
+</html>
