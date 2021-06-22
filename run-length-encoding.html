@@ -19,6 +19,7 @@
       function encode(pattern){
         var iteratePattern = pattern.split("");
         var count = 1; //starts at one to account for the first instance of the letter
+        var compress = [];
         var build = "";
         var compressedPattern = "";
 
@@ -29,20 +30,21 @@
           if(iteratePattern[i] === iteratePattern[h]){
             console.log("matching");
             count++;
+            compress.push()
           } else {
             console.log("not matching");
             count = 1; //resets count if not matched
           }
           build = count + iteratePattern[i];
           // console.log(build);
-
           compressedPattern += build; //"builds" the compressed version of the pattern
+
         }
         console.log(pattern)
         console.log(compressedPattern);
       }
       encode("hhpnnnyhh"); //the function should not return 4h, but 2h on each end of the output (compressedPattern)
-
+      //error: nnn returns 1n2n3n, need it to just return 3n
     </script>
   </body>
 </html>
