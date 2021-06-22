@@ -26,21 +26,27 @@
         for(var i = 1; i < pattern.length; i++) {
           var h = i - 1 //looks at previous index from the increment (i) to compare, and since i starts at 1, h accounts for the 0th index
           // console.log(i + " and " + h);
+
           console.log(iteratePattern[i] + " and " + iteratePattern[h]);
           if(iteratePattern[i] === iteratePattern[h]){
             console.log("matching");
             count++;
-            compress.push()
+
           } else {
             console.log("not matching");
             count = 1; //resets count if not matched
+
+            console.log(compress);
           }
           build = count + iteratePattern[i];
+          compress.push(build);
+          console.log(compress);
           // console.log(build);
           compressedPattern += build; //"builds" the compressed version of the pattern
 
         }
         console.log(pattern)
+
         console.log(compressedPattern);
       }
       encode("hhpnnnyhh"); //the function should not return 4h, but 2h on each end of the output (compressedPattern)
