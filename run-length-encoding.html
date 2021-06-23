@@ -19,33 +19,34 @@
       function encode(pattern){
         var iteratePattern = pattern.split("");
         var count = 1; //starts at one to account for the first instance of the letter
-        var compress = [];
-        var build = null;
         var compressedPattern = "";
 
-        for(var i = 1; i < pattern.length; i++) {
-          var h = i - 1 //looks at previous index from the increment (i) to compare, and since i starts at 1, h accounts for the 0th index
+        for(var i = 0; i < pattern.length; i++) { //iterates through split string from 0
+          var j = i + 1 //looks at next index from the increment (i) to compare, when it reaches the end of the split string it will compare against "undefined" and stop
           // console.log(i + " and " + h);
 
-          console.log(iteratePattern[i] + " and " + iteratePattern[h]);
-          if(iteratePattern[i] === iteratePattern[h]){
+          var build = count + iteratePattern[i]; //returns count of each group of letters as it iterates through the pattern to be appended to the compressedPattern
+
+          console.log(iteratePattern[i] + " and " + iteratePattern[j]);
+          if(iteratePattern[i] === iteratePattern[j]){
             console.log("matching");
             count++;
 
+            console.log(build)
           } else {
             console.log("not matching");
-            count = 1; //resets count if not matched
+            compressedPattern += build; //"builds" the compressed version of the pattern
+            // console.log(compressedPattern);
+
+            count = 1; //resets count if not matched, but only after appending the previous build
           }
-
-          build = count + iteratePattern[i];
-          compressedPattern += build; //"builds" the compressed version of the pattern
-
         }
         console.log(pattern)
         console.log(compressedPattern);
       }
       encode("hhpnnnyhh"); //the function should not return 4h, but 2h on each end of the output (compressedPattern)
       //error: nnn returns 1n2n3n, need it to just return 3n
+      //update: fixed, changed build to only append after the matches break, then reset count
     </script>
   </body>
 </html>
