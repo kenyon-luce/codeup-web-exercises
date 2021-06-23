@@ -27,14 +27,14 @@
 
             var build = count + iteratePattern[i]; //returns count of each group of letters as it iterates through the pattern to be appended to the compressedPattern
 
-            console.log(iteratePattern[i] + " and " + iteratePattern[j]);
+            // console.log(iteratePattern[i] + " and " + iteratePattern[j]);
             if (iteratePattern[i] === iteratePattern[j]) {
-                console.log("matching");
+                // console.log("matching");
                 count++;
 
-                console.log(build)
+                // console.log(build)
             } else {
-                console.log("not matching");
+                // console.log("not matching");
                 compressedPattern += build; //"builds" the compressed version of the pattern
                 // console.log(compressedPattern);
 
