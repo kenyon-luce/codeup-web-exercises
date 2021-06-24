@@ -11,6 +11,7 @@
 <!--    <form action=""></form>-->
 <label for="input">Input:</label>
 <input type="text" id="input">
+<input type="submit" id="random" value="Random">
 <input type="submit" id="submit">
 <p>Output: <span id="output"></span></p>
 
@@ -59,22 +60,25 @@
     //    RANDOM PATTERN GENERATOR
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-    const scopeSize = 4;
+    const scopeSize = 3;
     const randomScopeStart = Math.floor(Math.random() * (alphabet.length - scopeSize)); //generates number between 13 and 13 representing the index number
     const randomScopeEnd = randomScopeStart + scopeSize;
-    const scope = alphabet.slice(randomScopeStart, randomScopeEnd);
+    const scope = alphabet.slice(randomScopeStart, randomScopeEnd); //takes the random numbers to create a shortened version of alphabet
 
     var generatePattern = "";
 
     for (var i = 0; i < alphabet.length; i++) {
-        const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)] //generates random index number to be viewed in the string
-        const randomCharacterInScope = scope[Math.floor(Math.random() * scope.length)]
+        const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)] //generates random letter through random index number that is being passed
+        const randomCharacterInScope = scope[Math.floor(Math.random() * scope.length)] //generates random letter within the generated scope, raising the chances of repeating letters to be compressed
 
         generatePattern += randomCharacterInScope;
     }
     // console.log(alphabet.slice(randomScopeStart, randomScopeEnd));
-    console.log(generatePattern);
+    console.log("random pattern: " + generatePattern);
 
+    $("#random").click(function(){
+        $("#input").val(generatePattern)
+    })
 
 </script>
 </body>
