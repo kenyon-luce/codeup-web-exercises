@@ -17,7 +17,7 @@
 <!--    ENCODER FUNCTION-->
 <script>
     function encode(pattern) {
-        var iteratePattern = pattern.split("");
+        const iteratePattern = pattern.split("");
         var count = 1; //starts at one to account for the first instance of the letter
         var compressedPattern = "";
 
@@ -55,6 +55,14 @@
             encode($("#input").val())
         )
     })
+
+//    RANDOM PATTERN GENERATOR
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    // var
+
+    const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+
 
 </script>
 </body>
