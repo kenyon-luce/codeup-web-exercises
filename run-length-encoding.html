@@ -56,12 +56,24 @@
         )
     })
 
-//    RANDOM PATTERN GENERATOR
+    //    RANDOM PATTERN GENERATOR
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    // var
 
-    const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    const scopeSize = 4;
+    const randomScopeStart = Math.floor(Math.random() * (alphabet.length - scopeSize)); //generates number between 13 and 13 representing the index number
+    const randomScopeEnd = randomScopeStart + scopeSize;
+    const scope = alphabet.slice(randomScopeStart, randomScopeEnd);
 
+    var generatePattern = "";
+
+    for (var i = 0; i < alphabet.length; i++) {
+        const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)] //generates random index number to be viewed in the string
+        const randomCharacterInScope = scope[Math.floor(Math.random() * scope.length)]
+
+        generatePattern += randomCharacterInScope;
+    }
+    // console.log(alphabet.slice(randomScopeStart, randomScopeEnd));
+    console.log(generatePattern);
 
 
 </script>
