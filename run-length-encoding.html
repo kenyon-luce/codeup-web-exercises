@@ -69,12 +69,12 @@
         var generatePattern = "";
 
         for (var i = 0; i < alphabet.length; i++) {
-            var randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)] //generates random letter through random index number that is being passed
-            const randomCharacterInScope = scope[Math.floor(Math.random() * scope.length)] //generates random letter within the generated scope, raising the chances of repeating letters to be compressed
+            const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)] //generates random letter through random index number that is being passed
+            const randomLetterInScope = scope[Math.floor(Math.random() * scope.length)] //generates random letter within the generated scope, raising the chances of repeating letters to be compressed
 
             // for(var j = 0; i < 3; j++){
 
-            generatePattern += randomCharacterInScope;
+            generatePattern += randomLetterInScope;
             // } //hardcode to repeat letters at least more than twice
         }
         // console.log(alphabet.slice(randomScopeStart, randomScopeEnd));
@@ -84,10 +84,25 @@
     }
 
     $("#random").click(function(){
-        $("#input").val(generateRandom())
+        // $("#input").val(generateRandom())
     })
     //error: can only click on the button once
     //update: fixed, the loop is now in a function that is called on every time its clicked
+
+//    RANDOM REPEAT FUNCTION TEST
+    const string = "string";
+    const randomRepeat = Math.floor(Math.random() * 5) + 2 //randomly repeats between 2 and 5 times
+
+    let pattern = "";
+    for (let i = 0; i < string.length; i++){
+        const randomLetter = string[Math.floor(Math.random() * string.length)] //generates random letter through random index number that is being passed
+
+        for (let i = 0; i < randomRepeat; i++) {
+            pattern += randomLetter
+        }
+    }
+
+    console.log(pattern);
 
 </script>
 </body>
