@@ -24,20 +24,14 @@
 
         for (var i = 0; i < pattern.length; i++) { //iterates through split string from 0
             var j = i + 1 //looks at next index from the increment (i) to compare, when it reaches the end of the split string it will compare against "undefined" and stop
-            // console.log(i + " and " + h);
 
             var build = count + iteratePattern[i]; //returns count of each group of letters as it iterates through the pattern to be appended to the compressedPattern
 
-            // console.log(iteratePattern[i] + " and " + iteratePattern[j]);
             if (iteratePattern[i] === iteratePattern[j]) {
-                // console.log("matching");
                 count++;
 
-                // console.log(build)
             } else {
-                // console.log("not matching");
                 compressedPattern += build; //"builds" the compressed version of the pattern
-                // console.log(compressedPattern);
 
                 count = 1; //resets count if not matched, but only after appending the previous build
             }
@@ -47,9 +41,9 @@
         return compressedPattern;
     }
 
-    encode("hhpnnnyhh"); //the function should not return 4h, but 2h on each end of the output (compressedPattern)
-    //error: nnn returns 1n2n3n, need it to just return 3n
-    //update: fixed, changed build to only append after the matches break, then reset count
+    //encode("hhpnnnyhh")); //the function should not return 4h, but 2h on each end of the output (compressedPattern)
+    ////error: nnn returns 1n2n3n, need it to just return 3n
+    ////update: fixed, changed build to only append after the matches break, then reset count
 
     $("#submit").click(function () {
         $("#output").html(
@@ -77,9 +71,7 @@
             for (let i = 0; i < randomRepeat; i++) {
                 generatePattern += randomLetterInScope;
             }
-
         }
-        // console.log(alphabet.slice(randomScopeStart, randomScopeEnd));
         console.log("random pattern: " + generatePattern);
 
         return generatePattern; //returns pattern to be received
@@ -90,21 +82,6 @@
     })
     //error: can only click on the button once
     //update: fixed, the loop is now in a function that is called on every time its clicked
-
-    // //    RANDOM REPEAT FUNCTION TEST
-    // const string = "string";
-    // const randomRepeat = Math.floor(Math.random() * 5) + 2 //randomly repeats between 2 and 5 times
-    //
-    // let pattern = "";
-    // for (let i = 0; i < string.length; i++) {
-    //     const randomLetter = string[Math.floor(Math.random() * string.length)] //generates random letter through random index number that is being passed
-    //
-    //     for (let i = 0; i < randomRepeat; i++) {
-    //         pattern += randomLetter
-    //     }
-    // }
-    //
-    // console.log(pattern);
 
 </script>
 </body>
