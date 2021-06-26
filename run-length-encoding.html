@@ -60,7 +60,7 @@
         const randomScopeEnd = randomScopeStart + scopeSize;
         const scope = alphabet.slice(randomScopeStart, randomScopeEnd); //takes the random numbers to create a shortened version of alphabet
 
-        const randomRepeat = Math.floor(Math.random() * 5) + 2 //randomly repeats between 2 to 5 times
+        const randomRepeat = Math.floor(Math.random() * 5) + 1 //randomly repeats between 1 to 5 times, 1h is as inefficient as 2h, why not include them both to show why run length encoders are deprecated
 
         var generatePattern = "";
 
