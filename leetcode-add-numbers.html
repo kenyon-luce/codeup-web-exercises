@@ -11,31 +11,28 @@
 
       var n2 = [3, 9, 5, 0]
 
-      //returns [6, 0, 5]
-      //maybe join the array, add them, then split them back into an array
-      //what if the two numbers are different lengths?
-
-      // console.log(Number(n1.join("")) + Number(n2.join("")))
-
       //  FIND BIGGEST NUMBER
-      var num1 = Number(n1.join(""))
-      var num2 = Number(n2.join(""))
+      var num1 = Number(n1.join(""));
+      var num2 = Number(n2.join(""));
 
       var sum = num1 + num2;
       console.log(num1 + " + " + num2 + " = " + sum);
+      console.log("")
 
-      if(n2.length !== n1.length){ //just using it to compare
-        for(var i = 0; i < (n1.length - n2.length); i++){
-          n2.push(0); //adds 0
-        }
+      //the sum needs to be a reversed array of numbers
+      var arr = ("" + sum).split("").reverse(); //need to iterate through this to parse each string
+      var sumArr = [];
+
+      for(var i = 0; i < arr.length; i++){
+          sumArr.push(parseInt(arr[i]));
       }
 
-      console.log(n1)
-      console.log(n2)
+      console.log(n1);
+      console.log("plus")
+      console.log(n2);
+      console.log("equals (reversed)")
 
-
-
-
+      console.log(sumArr);
     </script>
   </body>
 </html>
