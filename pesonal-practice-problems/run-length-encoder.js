@@ -1,7 +1,6 @@
 "use strict";
 
-
-$(document).ready(function(){
+$(document).ready(function(){ //wrapping everything sets my code to load only when my document is ready, this isn't needed for vanilla js
     function encode(pattern) {
         const iteratePattern = pattern.split("");
         var count = 1; //starts at one to account for the first instance of the letter
@@ -67,7 +66,5 @@ $(document).ready(function(){
     })
 //error: can only click on the button once
 //update: fixed, the loop is now in a function that is called on every time its clicked
-
-    console.log("file connected")
 });
 
