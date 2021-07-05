@@ -1,5 +1,7 @@
 "use strict";
 
+var encoder = true;
+
 $(document).ready(function(){ //wrapping everything sets my code to load only when my document is ready, this isn't needed for vanilla js
     function encode(pattern) {
         const iteratePattern = pattern.split("");

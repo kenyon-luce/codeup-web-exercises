@@ -1,3 +1,5 @@
+"use strict";
+
 // https://leetcode.com/problems/add-two-numbers/
 var n1 = [2, 1, 0]
 var n2 = [3, 9, 5, 0]
