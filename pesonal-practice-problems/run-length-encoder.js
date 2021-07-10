@@ -1,6 +1,6 @@
 "use strict";
 
-var encoder = true;
+var encoder
 
 $(document).ready(function(){ //wrapping everything sets my code to load only when my document is ready, this isn't needed for vanilla js
     function encode(pattern) {

@@ -6,7 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script src="run-length-encoder.js"></script>
-<!--        <script src="add-numbers-array.js"></script>-->
+        <script src="add-numbers-array.js"></script>
     </head>
     <body>
 <!--    -->
@@ -19,20 +19,22 @@
 <!--    -->
 
 <script>
-
-
-    function test(encoder){
-        let check = typeof (encoder);
+    function status(js){
+        let check = typeof (js);
         if(check !== "undefined"){
             console.log("Connected")
+            js = true
+
         } else {
             console.log("Disconnected")
+            js = false;
         }
 
-        return check;
+        return js;
     }
 
-    test(encoder);
+    console.log(status(encoder));
+    console.log(status(addNumArray));
 
 </script>
 
