@@ -5,7 +5,7 @@
         <title>Leetcode Practice</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!--        <script src="run-length-encoder.js"></script>-->
+        <script src="run-length-encoder.js"></script>
 <!--        <script src="add-numbers-array.js"></script>-->
     </head>
     <body>
@@ -19,17 +19,21 @@
 <!--    -->
 
 <script>
-    // function checkStatus(js){
-    //     var check = typeof (js);
-        var check = typeof (encoder);
 
+
+    function test(encoder){
+        let check = typeof (encoder);
         if(check !== "undefined"){
             console.log("Connected")
         } else {
             console.log("Disconnected")
         }
-    // }
-    // checkStatus(encoder);
+
+        return check;
+    }
+
+    test(encoder);
+
 </script>
 
 
